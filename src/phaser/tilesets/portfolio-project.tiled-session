@@ -1,0 +1,41 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "port.tmx",
+    "expandedProjectPaths": [
+        "."
+    ],
+    "fileStates": {
+        "port.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 689.3333333333334,
+                "y": 540
+            }
+        },
+        "port.tmx#port": {
+            "scaleInDock": 1
+        }
+    },
+    "last.exportedFilePath": "/home/johnnyyork13/Desktop/portfolio-game/src/phaser/tilesets",
+    "last.imagePath": "/home/johnnyyork13/Desktop/portfolio-game/src/phaser/tilesets",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "openFiles": [
+        "port.tmx"
+    ],
+    "project": "portfolio-project.tiled-project",
+    "recentFiles": [
+        "port.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}
