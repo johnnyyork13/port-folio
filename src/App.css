@@ -1,4 +1,30 @@
 html, body {
+    image-rendering: pixelated;
     margin: 0;
-    padding: 0;
+}
+
+body {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(11, 50px);
+    grid-template-rows: repeat(11, 50px);
+}
+
+.tile {
+    height: 50px;
+    width: 50px;
+}
+
+.player {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    transition-property: translate;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
 }

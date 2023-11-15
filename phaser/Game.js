@@ -12,6 +12,9 @@ const config = {
         width: window.innerWidth,
         height: window.innerHeight
     },
+    // scale: {
+    //     mode: Phaser.Scale.FIT,
+    // },
     physics: {
         default: 'arcade',
         arcade: {

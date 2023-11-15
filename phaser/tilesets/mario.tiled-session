@@ -1,37 +1,41 @@
 {
-    "Map/SizeTest": {
-        "height": 4300,
-        "width": 2
-    },
-    "activeFile": "port.tmx",
+    "activeFile": "mario-tmx.tmx",
     "expandedProjectPaths": [
-        "."
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
-        "port.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 0,
+        "": {
+            "scaleInDock": 1
+        },
+        "#mario": {
+            "scaleInDock": 1
+        },
+        "#mario-tileset": {
+            "dynamicWrapping": false
+        },
+        "mario-tmx.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 689.3333333333334,
-                "y": 540
+                "x": 212,
+                "y": 132.5
             }
         },
-        "port.tmx#port": {
+        "mario-tmx.tmx#mario-tileset": {
             "scaleInDock": 1
         }
     },
     "last.exportedFilePath": "/home/johnnyyork13/Desktop/portfolio-game/src/phaser/tilesets",
     "last.imagePath": "/home/johnnyyork13/Desktop/portfolio-game/src/phaser/tilesets",
+    "map.fixedSize": true,
     "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
     "map.lastUsedFormat": "tmx",
-    "map.tileHeight": 16,
-    "map.tileWidth": 16,
     "openFiles": [
-        "port.tmx"
+        "mario-tmx.tmx"
     ],
-    "project": "portfolio-project.tiled-project",
+    "project": "mario.tiled-project",
     "recentFiles": [
-        "port.tmx"
+        "mario-tmx.tmx"
     ],
     "tileset.embedInMap": true,
     "tileset.tileSize": {
