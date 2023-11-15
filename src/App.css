@@ -4,27 +4,52 @@ html, body {
 }
 
 body {
-    padding-top: 10px;
     display: flex;
     justify-content: center;
 }
 
+.App {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
+
 .game-container {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(11, 50px);
-    grid-template-rows: repeat(11, 50px);
-}
-
-.tile {
-    height: 50px;
-    width: 50px;
-}
-
-.player {
-    background-color: red;
-    height: 50px;
-    width: 50px;
     transition-property: translate;
     transition-duration: .2s;
     transition-timing-function: ease-out;
+    /* grid-template-columns: repeat(11, 50px);
+    grid-template-rows: repeat(11, 50px); */
+}
+
+.tile {
+    border: 1px solid black;
+}
+
+.player {
+    position: absolute;
+    background-color: red;
+    transition-property: translate;
+    transition-duration: .2s;
+    transition-timing-function: ease-out;
+}
+
+.about-container {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    background-color: white;
+}
+
+.projects-container {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    background-color: white;
 }
