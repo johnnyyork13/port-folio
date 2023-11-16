@@ -8,13 +8,15 @@ import levels from './assets/levels.json';
 import PlayerComp from './components/PlayerComp';
 import About from './components/About';
 import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
 
 import Tile from './components/Tile';
 
 function App() {
 
-  const tileSize = Math.floor(window.innerHeight / 11);
-  //console.log(tileSize);
+
+  const TILE_SIZE = 50;
 
   const [page, setPage] = React.useState("none");
   const [level, setLevel] = React.useState([])
@@ -22,7 +24,11 @@ function App() {
   const [movement, setMovement] = React.useState({
     x: 0,
     y: 0,
-    coords: [6,4]
+    coords: [Math.floor(levels.one[0].length/2), Math.floor(levels.one.length / 2)]
+  })
+  const [mapMovement, setMapMovement] = React.useState({
+    x: 0,
+    y: 0
   })
 
   React.useEffect(() => {
@@ -35,19 +41,67 @@ function App() {
                       x={x}
                       y={y}
                       value={tile}
+                      TILE_SIZE={TILE_SIZE}
                     />
         }) 
       })
     })
-  }, [movement]);
+  }, []);
+
+  React.useEffect(() => {
+    setMapMovement((prev) => ({
+      x: (movement.coords[0] >= 11 && movement.coords[0] < levels.one[0].length - 7) ? prev.x = movement.x : prev.x,
+      y: (movement.coords[1] >= 2 && movement.coords[1] < levels.one.length ) ? prev.y = movement.y : prev.y,
+    }))
+  }, [movement])
+
+  function checkCollision(x, y) {
+    try {
+        switch (levels.one[y] && levels.one[y][x] && levels.one[y][x]) {
+            case 0:
+                setPage("none");
+                return false;
+            case 2: 
+                setPage("about");
+                return false;
+            case 3:
+                setPage("projects");
+                return false;
+            case 4:
+                setPage("skills");
+                break;
+            case 5:
+                setPage("contact");
+                break;
+            case 7:
+                setPage("none");
+                return false;
+            default:
+                setPage("none");
+                return true;
+        }
+    } catch(err) {
+        console.log(err);
+        return true;
+    }
+    
+}
 
   const gridStyleSize = {
-    width: `${tileSize * 10}px`,
-    height: `${tileSize * 10}px`,
-    gridTemplateColumns: `repeat(11, ${tileSize}px)`,
-    gridTemplateRows: `repeat(11, ${tileSize}px)`,
-    translate: `${movement.x}px ${movement.y}px`
+    width: `${levels.one[0].lenght * TILE_SIZE}px`,
+    height: `${levels.one.length * TILE_SIZE}px`,
+    gridTemplateColumns: `repeat(${levels.one[0].length}, ${TILE_SIZE}px)`,
+    gridTemplateRows: `repeat(${levels.one.length}, ${TILE_SIZE}px)`,
+    translate: `${mapMovement.x}px ${mapMovement.y}px`
   }
+
+  // const gridStyleSize = {
+  //   width: `${tileSize * 10}px`,
+  //   height: `${tileSize * 10}px`,
+  //   gridTemplateColumns: `repeat(11, ${tileSize}px)`,
+  //   gridTemplateRows: `repeat(11, ${tileSize}px)`,
+  //   translate: `${movement.x}px ${movement.y}px`
+  // }
 
   return (
     <div className="App">
@@ -56,8 +110,8 @@ function App() {
         <PlayerComp 
           movement={movement}
           setMovement={setMovement}
-          setPage={setPage}
-          tileSize={tileSize}
+          checkCollision={checkCollision}
+          TILE_SIZE={TILE_SIZE}
         />
       </div>
       {page === "about" &&
@@ -65,6 +119,12 @@ function App() {
       }
       {page === "projects" &&
         <Projects />
+      }
+      {page === "skills" &&
+        <Skills />
+      }
+      {page === "contact" &&
+        <Contact />
       }
     </div>
   )
