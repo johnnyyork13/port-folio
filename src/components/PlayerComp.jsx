@@ -6,6 +6,8 @@ export default function PlayerComp(props) {
     const x = Math.floor(levels.one[0].length / 2);
     const y = Math.floor(levels.one.length / 2);
 
+    const [walkClass, setWalkClass] = React.useState("standing-down");
+
     const style = {
         width: props.TILE_SIZE,
         height: props.TILE_SIZE,
@@ -21,6 +23,7 @@ export default function PlayerComp(props) {
                 switch (e.code) {
                     case 'ArrowUp':
                         //console.log("BEFORE", yCoord);
+                        setWalkClass("walk-up");
                         !props.checkCollision(xCoord, yCoord - 1) && props.setMovement((prev) => 
                             ({
                                 ...prev, 
@@ -29,6 +32,7 @@ export default function PlayerComp(props) {
                             }));
                         break;
                     case 'ArrowDown':
+                        setWalkClass("walk-down");
                         !props.checkCollision(xCoord, yCoord + 1) && props.setMovement((prev) => 
                             ({
                                 ...prev, 
@@ -37,6 +41,7 @@ export default function PlayerComp(props) {
                             }));
                         break;
                     case 'ArrowLeft':
+                        setWalkClass("walk-left");
                         !props.checkCollision(xCoord - 1, yCoord) && props.setMovement((prev) => 
                             ({
                                 ...prev, 
@@ -45,6 +50,7 @@ export default function PlayerComp(props) {
                             }));
                         break;
                     case 'ArrowRight':
+                        setWalkClass("walk-right");
                         !props.checkCollision(xCoord + 1, yCoord) && props.setMovement((prev) => 
                             ({
                                 ...prev, 
@@ -54,9 +60,25 @@ export default function PlayerComp(props) {
                         break;
                 }
         }
+        document.onkeyup = function(e) {
+            switch(e.code) {
+                case 'ArrowUp':
+                    setWalkClass('standing-up');
+                    break;
+                case 'ArrowLeft':
+                    setWalkClass('standing-left');
+                    break;
+                case 'ArrowDown':
+                    setWalkClass('standing-down');
+                    break;
+                case 'ArrowRight':
+                    setWalkClass('standing-right');
+                    break;
+            }
+        }
     }, [props.movement]);
 
     return (
-        <div className='player tile' style={style}></div>
+        <div className={`player tile ${walkClass}`} style={style}></div>
     )
 }

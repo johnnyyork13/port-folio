@@ -57,12 +57,73 @@ body {
 }
 
 .player {
+    transform: scale(160%);
     position: absolute;
     z-index: 1;
-    background-color: red;
     transition-property: translate;
-    transition-duration: .2s;
+    transition-duration: .7s;
     transition-timing-function: ease-out;
+    display: block;
+}
+
+.standing-up {
+    background: url('./assets/walk-up.png') 0px 0px;
+}
+
+.standing-left {
+    background: url('./assets/walk-left.png') 0px 0px;
+}
+
+.standing-down {
+    background: url('./assets/walk-down.png') 0px 0px;
+}
+
+.standing-right {
+    background: url('./assets/walk-right.png') 0px 0px;
+}
+
+.walk-up {
+    animation: walkup 1s steps(4) infinite;
+    background-image: url('./assets/walk-up.png');
+}
+
+.walk-left {
+    animation: walkup 1s steps(4) infinite;
+    background-image: url('./assets/walk-left.png');
+}
+
+.walk-down {
+    animation: walkup 1s steps(4) infinite;
+    background-image: url('./assets/walk-down.png');
+}
+
+.walk-right {
+    animation: walkup 1s steps(4) infinite;
+    background-image: url('./assets/walk-right.png');
+}
+
+@keyframes walkup {
+    100% {
+        background-position: -200px 0px;
+    }
+}
+
+@keyframes walkleft {
+    100% {
+        background-position: -200px 0;
+    }
+}
+
+@keyframes walkleft {
+    100% {
+        background-position: -200px 0;
+    }
+}
+
+@keyframes walkleft {
+    100% {
+        background-position: -200px 0;
+    }
 }
 
 .about-container, .projects-container, .skills-container, .contact-container {

@@ -76,6 +76,18 @@ function App() {
             case 7:
                 setPage("none");
                 return false;
+            case 10: return false; //Tree Tops
+            case 11: return false; //Tree Tops
+            case 12: return false; //Tree Tops
+            case 13: return false; //Tree Tops
+            case 101: return false; //house top
+            case 102: return false; //house top
+            case 103: return false; //house top
+            case 111: return false; //house top
+            case 112: return false; //house top
+            case 113: return false; //house top
+            case 114: return false; //house top
+            case 115: return false; //house top
             default:
                 setPage("none");
                 return true;

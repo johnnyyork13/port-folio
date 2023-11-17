@@ -8,6 +8,8 @@ NUMBER KEY
 7 = Road 
 8 = House Collision Block
 9 = Border collision block
+
+TREES
 10 = Tree Top Left
 11 = Tree Top Right
 12 = Tree Middle Left
@@ -32,3 +34,30 @@ NUMBER KEY
 31 = Tree2 BOTTOM MAP Middle Right
 32 = Tree2 BOTTOM MAP Bottom Left
 33 = Tree2 BOTTOM MAP Bottom Right
+
+BUILDINGS
+
+HOUSE
+ROW ONE = 101, 102, 103
+ROW TWO = 111, 112, 113, 114, 115
+ROW THREE = 121, 122, 123, 124, 125, 126, 127
+ROW FOUR = 131, 132, 133, 134, 135, 136, 137
+ROW FIVE = 141, 142, 143, 144, 145, 146, 147
+
+BANK
+ROW ONE = 201 -> 206
+ROW TWO = 211 -> 218
+ROW THREE = 221 -> 228
+ROW FOUR = 231 -> 238
+ROW FIVE = 241 -> 248
+
+GYM
+ROW ONE = 301 -> 309
+ROW TWO = 311 -> 319
+ROW THREE = 321 -> 329
+ROW FOUR = 331 -> 339
+
+POST OFFICE
+ROW ONE = 401 -> 406
+ROW TWO = 411 -> 416
+ROW THREE = 421 -> 426
