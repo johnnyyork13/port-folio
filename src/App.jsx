@@ -2,6 +2,7 @@ import React from 'react';
 import {v4 as uuidv4} from 'uuid';
 import './App.css'
 import levels from './assets/levels.json';
+import World from './utils/move';
 
 //import Block from './assets/Block';
 //import PlayerClass from './assets/Player';
@@ -20,7 +21,6 @@ function App() {
 
   const [page, setPage] = React.useState("none");
   const [level, setLevel] = React.useState([])
-  const [renderLevel, setRenderLevel] = React.useState([]);
   const [movement, setMovement] = React.useState({
     x: 0,
     y: 0,
@@ -30,23 +30,43 @@ function App() {
     x: 0,
     y: 0
   })
+  const [world, setWorld] = React.useState({});
+  const [clickedTile, setClickedTile] = React.useState({});
+  const [shortestPath, setShortestPath] = React.useState([]);
 
   React.useEffect(() => {
-    //console.log('here');
-    setLevel(function() {
-      return levels.one.map((row, y) => {
-        return row.map((tile, x) => {
-            return <Tile
-                      key={uuidv4()}
-                      x={x}
-                      y={y}
-                      value={tile}
-                      TILE_SIZE={TILE_SIZE}
-                    />
-        }) 
-      })
-    })
+    setWorld(new World(levels.one));
   }, []);
+
+  React.useEffect(() => {
+    if (world.world) {
+      setLevel(function() {
+        return levels.one.map((row, y) => {
+          return row.map(function(tile, x){
+              world.world[y][x].setValue(tile);
+              if (x === movement.coords[0] && y === movement.coords[1]) { //set player tile
+                world.world[y][x].setAsPlayer();
+              }
+              return <Tile
+                        key={uuidv4()}
+                        x={x}
+                        y={y}
+                        value={tile}
+                        TILE_SIZE={TILE_SIZE}
+                        setClickedTile={setClickedTile}s
+                      />
+          }) 
+        })
+      })
+    }
+  }, [world])
+
+  React.useEffect(() => {
+    if (clickedTile.x > 0) {
+      setShortestPath(world.movePlayerClick(movement, clickedTile));
+    }
+  }, [clickedTile])
+
 
   React.useEffect(() => {
     setMapMovement((prev) => ({
@@ -104,16 +124,8 @@ function App() {
     height: `${levels.one.length * TILE_SIZE}px`,
     gridTemplateColumns: `repeat(${levels.one[0].length}, ${TILE_SIZE}px)`,
     gridTemplateRows: `repeat(${levels.one.length}, ${TILE_SIZE}px)`,
-    translate: `${mapMovement.x}px ${mapMovement.y}px`
+    translate: `${-mapMovement.x}px ${-mapMovement.y}px`
   }
-
-  // const gridStyleSize = {
-  //   width: `${tileSize * 10}px`,
-  //   height: `${tileSize * 10}px`,
-  //   gridTemplateColumns: `repeat(11, ${tileSize}px)`,
-  //   gridTemplateRows: `repeat(11, ${tileSize}px)`,
-  //   translate: `${movement.x}px ${movement.y}px`
-  // }
 
   return (
     <div className="App">
@@ -124,6 +136,9 @@ function App() {
           setMovement={setMovement}
           checkCollision={checkCollision}
           TILE_SIZE={TILE_SIZE}
+          shortestPath={shortestPath}
+          //movePlayerClick={world.movePlayerClick}
+
         />
       </div>
       {page === "about" &&
