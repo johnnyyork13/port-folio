@@ -1,5 +1,7 @@
 import React from 'react';
 import levels from '../assets/levels.json';
+import checkCollision from '../utils/collision.js';
+import World from '../utils/move';
 
 export default function PlayerComp(props) {
 
@@ -8,6 +10,7 @@ export default function PlayerComp(props) {
 
     const [walkClass, setWalkClass] = React.useState("standing-down");
     const [resetWalkingAnimation, setResetWalkingAnimation] = React.useState(false);
+    const [walking, setWalking] = React.useState(false);
 
     const style = {
         width: props.TILE_SIZE,
@@ -16,15 +19,28 @@ export default function PlayerComp(props) {
         top: `${y * props.TILE_SIZE}px`,
         translate: `${props.movement.x}px ${props.movement.y}px`
     }
+    // React.useEffect(() => {
+    //     const playerX = props.movement.coords[0];
+    //     const playerY = props.movement.coords[1];
+    //     if ()
+    // }, [props.movement])
 
     React.useEffect(() => {
-        if (props.shortestPath.length > 0) {
+        if (props.shortestPath.length > 0 && !walking) {
+            setWalking(true);
             const shortestPath = props.shortestPath.slice(1);
             const playerTile = props.shortestPath[0];
+            let inDoor = false;
+            let doorNumber;
             function movePlayer() {
                 setTimeout(function() {
                     if (shortestPath.length > 0) {               
                         const nextMove = shortestPath.shift();
+
+                        if (nextMove.isDoor) {
+                            inDoor = true;
+                            doorNumber = nextMove.val;
+                        }
                         //move up
                         if (nextMove.x === playerTile.x && nextMove.y < playerTile.y) {
                             props.setMovement((prev) => ({...prev, y: prev.y -= props.TILE_SIZE, coords: [prev.coords[0], prev.coords[1] - 1]}));
@@ -49,8 +65,34 @@ export default function PlayerComp(props) {
                         movePlayer();     
                     } else {
                         setResetWalkingAnimation((prev) => !prev);
+                        setWalking(false);
                     }
-                }, 200);
+                }, 250);
+                if (inDoor) {
+                    switch(doorNumber) {
+                        case 143: 
+                            props.setCurrentLevel(levels.house);
+                            break;
+                        case 244: 
+                            props.setCurrentLevel(levels.bank);
+                            break;
+                        case 337:
+                            props.setCurrentLevel(levels.gym);
+                            break;
+                        case 338:
+                            props.setCurrentLevel(levels.gym);
+                            break;
+                        case 245:
+                            props.setCurrentLevel(levels.bank);
+                            break;
+                        case 421:
+                            props.setCurrentLevel(levels.postOffice);
+                            break;
+                        case 2:
+                            props.setCurrentLevel(levels.one);
+                            break;
+                    }
+                }
             }
             movePlayer();
         }

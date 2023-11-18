@@ -16,6 +16,8 @@ import Tile from './components/Tile';
 
 function App() {
 
+  // console.log(levels.one.length, levels.one[0].length);
+
 
   const TILE_SIZE = 50;
 
@@ -30,18 +32,19 @@ function App() {
     x: 0,
     y: 0
   })
-  const [world, setWorld] = React.useState({});
+  const [world, setWorld] = React.useState([]);
   const [clickedTile, setClickedTile] = React.useState({});
   const [shortestPath, setShortestPath] = React.useState([]);
+  const [currentLevel, setCurrentLevel] = React.useState(levels.one);
 
   React.useEffect(() => {
-    setWorld(new World(levels.one));
-  }, []);
+    setWorld(new World(currentLevel));
+  }, [currentLevel]);
 
   React.useEffect(() => {
     if (world.world) {
       setLevel(function() {
-        return levels.one.map((row, y) => {
+        return currentLevel.map((row, y) => {
           return row.map(function(tile, x){
               world.world[y][x].setValue(tile);
               if (x === movement.coords[0] && y === movement.coords[1]) { //set player tile
@@ -59,7 +62,7 @@ function App() {
         })
       })
     }
-  }, [world])
+  }, [world, currentLevel])
 
   React.useEffect(() => {
     if (clickedTile.x > 0) {
@@ -74,50 +77,6 @@ function App() {
       y: (movement.coords[1] >= 2 && movement.coords[1] < levels.one.length ) ? prev.y = movement.y : prev.y,
     }))
   }, [movement])
-
-  function checkCollision(x, y) {
-    try {
-        switch (levels.one[y] && levels.one[y][x] && levels.one[y][x]) {
-            case 0:
-                setPage("none");
-                return false;
-            case 2: 
-                setPage("about");
-                return false;
-            case 3:
-                setPage("projects");
-                return false;
-            case 4:
-                setPage("skills");
-                break;
-            case 5:
-                setPage("contact");
-                break;
-            case 7:
-                setPage("none");
-                return false;
-            case 10: return false; //Tree Tops
-            case 11: return false; //Tree Tops
-            case 12: return false; //Tree Tops
-            case 13: return false; //Tree Tops
-            case 101: return false; //house top
-            case 102: return false; //house top
-            case 103: return false; //house top
-            case 111: return false; //house top
-            case 112: return false; //house top
-            case 113: return false; //house top
-            case 114: return false; //house top
-            case 115: return false; //house top
-            default:
-                setPage("none");
-                return true;
-        }
-    } catch(err) {
-        console.log(err);
-        return true;
-    }
-    
-}
 
   const gridStyleSize = {
     width: `${levels.one[0].lenght * TILE_SIZE}px`,
@@ -134,11 +93,9 @@ function App() {
         <PlayerComp 
           movement={movement}
           setMovement={setMovement}
-          checkCollision={checkCollision}
           TILE_SIZE={TILE_SIZE}
           shortestPath={shortestPath}
-          //movePlayerClick={world.movePlayerClick}
-
+          setCurrentLevel={setCurrentLevel}
         />
       </div>
       {page === "about" &&

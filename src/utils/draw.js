@@ -19,24 +19,15 @@ export default function drawSprites(val) {
             break;
         case 2:
             specialStyle = {
-                backgroundColor: "blue"
+                backgroundColor: "brown"
              } //about door
             break;
-        case 3:
-            specialStyle = {
-                backgroundColor: "blue"
-             }  //projects door
-            break;
-        case 4:
-            specialStyle = {
-                backgroundColor: "blue"
-             }  //skills door
-            break;
-        case 5:
-            specialStyle = {
-                backgroundColor: "blue"
-             }  //contact door
-            break;
+        case 3: 
+             specialStyle = {
+                backgroundImage: `url('${spritesheet}')`,
+                backgroundPosition: `-50px -50px`,
+            }
+             break;
         case 7:
             specialStyle = {
                 backgroundImage: `url('${spritesheet}')`,
@@ -47,6 +38,12 @@ export default function drawSprites(val) {
             specialStyle = {
                 backgroundColor: "brown"
              }  //house collision
+            break;
+        }
+        case 9: {
+            specialStyle = {
+                backgroundColor: "black"
+            }
             break;
         }
         ////////////////////////////////////////TREES /////////////////////////////////////////////////////////

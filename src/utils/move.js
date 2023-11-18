@@ -7,6 +7,7 @@ class Tile {
         this.distance = null;
         this.parent = null;
         this.player = false;
+        this.isDoor = null;
     }
 
     setAsPlayer() {
@@ -33,11 +34,16 @@ class Tile {
         this.x = x;
         this.y = y;
     }
+
+    setAsDoor() {
+        this.isDoor = true;
+    }
 }
 
 export default class World {
     constructor(level) {
-        this.clickableTiles = [0, 7] //hard code allowed tiles
+        this.clickableTiles = [0, 2, 3, 7, 143, 244, 245, 337, 338, 421] //hard code allowed tiles - refer to key for ID's
+        this.doorTiles = [2, 143, 244, 245, 337, 338, 421]
         this.level = level;
         this.world = [];
         this.TILE_SIZE = 50;
@@ -51,8 +57,12 @@ export default class World {
             for (let x = 0; x < this.level[y].length; x++) {
                 const pos = this.level[y][x];
                 const tile = new Tile(x, y);
+                tile.val = this.level[y][x];
                 if (this.clickableTiles.includes(pos)) {
                     tile.setClickable();
+                }
+                if (this.doorTiles.includes(pos)) {
+                    tile.setAsDoor();
                 }
                 row.push(tile);
             }
@@ -71,7 +81,11 @@ export default class World {
         const playerY = playerOld.coords[1];
         const x = clicked.x;
         const y = clicked.y;
-        let queue = [this.world[y][x]];
+        const clickedTile = this.world[y][x];
+        let queue = [];
+        if (clickedTile.clickable) {
+            queue.push(clickedTile);
+        }
         while (queue.length > 0) {
             const tile = queue.shift();
 
@@ -83,7 +97,10 @@ export default class World {
                 const nextTile = this.world[tile.y][tile.x - 1];
                 nextTile.setParent(tile);
                 nextTile.setDistance(tile.distance + 1);
-                queue.push(nextTile);
+
+                if (nextTile.clickable) {
+                    queue.push(nextTile);
+                }
                 if (nextTile.player) {
                     break;
                 }
@@ -93,7 +110,9 @@ export default class World {
                 const nextTile = this.world[tile.y][tile.x + 1];
                 nextTile.setParent(tile);
                 nextTile.setDistance(tile.distance + 1);
-                queue.push(nextTile);
+                if (nextTile.clickable) {
+                    queue.push(nextTile);
+                }
                 if (nextTile.player) {
                     break;
                 }
@@ -103,7 +122,9 @@ export default class World {
                 const nextTile = this.world[tile.y - 1][tile.x];
                 nextTile.setParent(tile);
                 nextTile.setDistance(tile.distance + 1);
-                queue.push(nextTile);
+                if (nextTile.clickable) {
+                    queue.push(nextTile);
+                }
                 if (nextTile.player) {
                     break;
                 }
@@ -113,7 +134,9 @@ export default class World {
                 const nextTile = this.world[tile.y + 1][tile.x];
                 nextTile.setParent(tile);
                 nextTile.setDistance(tile.distance + 1);
-                queue.push(nextTile);
+                if (nextTile.clickable) {
+                    queue.push(nextTile);
+                }
                 if (nextTile.player) {
                     break;
                 }
