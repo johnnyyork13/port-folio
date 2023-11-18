@@ -2,12 +2,21 @@ class Tile {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.val = null;
+        this.id = null;
         this.clickable = null;
         this.distance = null;
         this.parent = null;
         this.player = false;
         this.isDoor = null;
+        this.sprite = null;
+    }
+
+    setID(id) {
+        this.id = id;
+    }
+
+    setSprite(sprite) {
+        this.sprite = sprite;
     }
 
     setAsPlayer() {
@@ -42,8 +51,8 @@ class Tile {
 
 export default class World {
     constructor(level) {
-        this.clickableTiles = [0, 2, 3, 7, 143, 244, 245, 337, 338, 421] //hard code allowed tiles - refer to key for ID's
-        this.doorTiles = [2, 143, 244, 245, 337, 338, 421]
+        // this.clickableTiles = [0, 2, 3, 7, 143, 244, 245, 337, 338, 421] //hard code allowed tiles - refer to key for ID's
+        // this.doorTiles = [2, 143, 244, 245, 337, 338, 421]
         this.level = level;
         this.world = [];
         this.TILE_SIZE = 50;
@@ -55,19 +64,32 @@ export default class World {
         for (let y = 0; y < this.level.length; y++) {
             const row = [];
             for (let x = 0; x < this.level[y].length; x++) {
-                const pos = this.level[y][x];
-                const tile = new Tile(x, y);
-                tile.val = this.level[y][x];
-                if (this.clickableTiles.includes(pos)) {
-                    tile.setClickable();
+                const spriteMapLocation = this.level[y][x];
+                const setTile = () =>  {
+                    for (let i = 0; i < spriteMapLocation.sprites.length; i++) {
+                        const tile = new Tile(x, y);
+                        tile.setID(this.level[y][x].id);
+                        tile.setClickable(spriteMapLocation.clickable);
+                        if (tile.id === 0) {
+                            tile.setSprite(spriteMapLocation.sprites[Math.floor(Math.random() * spriteMapLocation.sprites.length)]);
+                            row.push(tile);
+                            return;
+                        } else {
+                            tile.setSprite(spriteMapLocation.sprites[i]);
+                        }
+                        row.push(tile);
+                    }
                 }
-                if (this.doorTiles.includes(pos)) {
-                    tile.setAsDoor();
-                }
-                row.push(tile);
+                setTile();
+                
+                // if (this.doorTiles.includes(pos)) {
+                //     tile.setAsDoor();
+                // }
+
             }
             this.world.push(row);
         }
+        //console.log("CREATING", this.world);
     }
 
     movePlayerClick(playerOld, clicked) {

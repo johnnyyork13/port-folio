@@ -1,7 +1,7 @@
 import React from 'react';
 import {v4 as uuidv4} from 'uuid';
 import './App.css'
-import levels from './assets/levels.json';
+import levels from './assets/levels';
 import World from './utils/move';
 
 //import Block from './assets/Block';
@@ -41,12 +41,13 @@ function App() {
     setWorld(new World(currentLevel));
   }, [currentLevel]);
 
+  //Rendered on screen
   React.useEffect(() => {
     if (world.world) {
       setLevel(function() {
-        return currentLevel.map((row, y) => {
+        return world.world.map((row, y) => {
           return row.map(function(tile, x){
-              world.world[y][x].setValue(tile);
+              // world.world[y][x].setValue(tile);
               if (x === movement.coords[0] && y === movement.coords[1]) { //set player tile
                 world.world[y][x].setAsPlayer();
               }
@@ -54,9 +55,9 @@ function App() {
                         key={uuidv4()}
                         x={x}
                         y={y}
-                        value={tile}
+                        tile={tile}
                         TILE_SIZE={TILE_SIZE}
-                        setClickedTile={setClickedTile}s
+                        setClickedTile={setClickedTile}
                       />
           }) 
         })

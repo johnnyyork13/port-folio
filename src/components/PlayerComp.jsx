@@ -1,5 +1,5 @@
 import React from 'react';
-import levels from '../assets/levels.json';
+import levels from '../assets/levels';
 import checkCollision from '../utils/collision.js';
 import World from '../utils/move';
 
@@ -67,7 +67,7 @@ export default function PlayerComp(props) {
                         setResetWalkingAnimation((prev) => !prev);
                         setWalking(false);
                     }
-                }, 250);
+                }, 50);
                 if (inDoor) {
                     switch(doorNumber) {
                         case 143: 

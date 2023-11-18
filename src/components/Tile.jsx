@@ -10,7 +10,7 @@ export default function Tile(props) {
         });
     }
 
-    const drawStyles = drawSprites(props.value);
+    const drawStyles = drawSprites(props.tile);
 
     const style = {
         zIndex: drawStyles.needsZIndex ? '2' : ''
@@ -22,7 +22,7 @@ export default function Tile(props) {
             onClick={handleTileClick}
             style={style}
         >
-            <div className="tile-image" style={drawStyles.specialStyle}></div>
+            <div className="tile-image" style={drawStyles}></div>
         </div>
     )
 }

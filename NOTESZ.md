@@ -1,8 +1,8 @@
 NUMBER KEY
 0 = Grass Tile
 1 = Player Tile
-3 = Wood Floor
 2 = Exit Door
+3 = Wood Floor
 7 = Road 
 8 = House Collision Block
 9 = Border collision block
@@ -42,6 +42,7 @@ ROW THREE = 121, 122, 123, 124, 125, 126, 127
 ROW FOUR = 131, 132, 133, 134, 135, 136, 137
 ROW FIVE = 141, 142, 143, 144, 145, 146, 147
 DOOR = 143
+WALL = 151
 
 BANK
 ROW ONE = 201 -> 206
