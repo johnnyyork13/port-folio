@@ -5,8 +5,8 @@ import World from '../utils/move';
 
 export default function PlayerComp(props) {
 
-    const x = Math.floor(levels.one[0].length / 2);
-    const y = Math.floor(levels.one.length / 2);
+    const x = Math.floor(levels.map[0].length / 2);
+    const y = Math.floor(levels.map.length / 2);
 
     const [walkClass, setWalkClass] = React.useState("standing-down");
     const [resetWalkingAnimation, setResetWalkingAnimation] = React.useState(false);
@@ -89,7 +89,7 @@ export default function PlayerComp(props) {
                             props.setCurrentLevel(levels.postOffice);
                             break;
                         case 2:
-                            props.setCurrentLevel(levels.one);
+                            props.setCurrentLevel(levels.map);
                             break;
                     }
                 }

@@ -26,7 +26,7 @@ function App() {
   const [movement, setMovement] = React.useState({
     x: 0,
     y: 0,
-    coords: [Math.floor(levels.one[0].length/2), Math.floor(levels.one.length / 2)]
+    coords: [Math.floor(levels.map[0].length/2), Math.floor(levels.map.length / 2)]
   })
   const [mapMovement, setMapMovement] = React.useState({
     x: 0,
@@ -35,7 +35,7 @@ function App() {
   const [world, setWorld] = React.useState([]);
   const [clickedTile, setClickedTile] = React.useState({});
   const [shortestPath, setShortestPath] = React.useState([]);
-  const [currentLevel, setCurrentLevel] = React.useState(levels.one);
+  const [currentLevel, setCurrentLevel] = React.useState(levels.map);
 
   React.useEffect(() => {
     setWorld(new World(currentLevel));
@@ -74,16 +74,16 @@ function App() {
 
   React.useEffect(() => {
     setMapMovement((prev) => ({
-      x: (movement.coords[0] >= 11 && movement.coords[0] < levels.one[0].length - 7) ? prev.x = movement.x : prev.x,
-      y: (movement.coords[1] >= 2 && movement.coords[1] < levels.one.length ) ? prev.y = movement.y : prev.y,
+      x: (movement.coords[0] >= 1 && movement.coords[0] < levels.map[0].length - 7) ? prev.x = movement.x : prev.x,
+      y: (movement.coords[1] >= 1 && movement.coords[1] < levels.map.length ) ? prev.y = movement.y : prev.y,
     }))
   }, [movement])
 
   const gridStyleSize = {
-    width: `${levels.one[0].lenght * TILE_SIZE}px`,
-    height: `${levels.one.length * TILE_SIZE}px`,
-    gridTemplateColumns: `repeat(${levels.one[0].length}, ${TILE_SIZE}px)`,
-    gridTemplateRows: `repeat(${levels.one.length}, ${TILE_SIZE}px)`,
+    width: `${levels.map[0].length * TILE_SIZE}px`,
+    height: `${levels.map.length * TILE_SIZE}px`,
+    gridTemplateColumns: `repeat(${levels.map[0].length}, ${TILE_SIZE}px)`,
+    gridTemplateRows: `repeat(${levels.map.length}, ${TILE_SIZE}px)`,
     translate: `${-mapMovement.x}px ${-mapMovement.y}px`
   }
 

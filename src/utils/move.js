@@ -51,8 +51,8 @@ class Tile {
 
 export default class World {
     constructor(level) {
-        // this.clickableTiles = [0, 2, 3, 7, 143, 244, 245, 337, 338, 421] //hard code allowed tiles - refer to key for ID's
-        // this.doorTiles = [2, 143, 244, 245, 337, 338, 421]
+        this.clickableTiles = [0,20] //hard code allowed tiles - refer to key for ID's
+        this.doorTiles = []
         this.level = level;
         this.world = [];
         this.TILE_SIZE = 50;
@@ -65,26 +65,15 @@ export default class World {
             const row = [];
             for (let x = 0; x < this.level[y].length; x++) {
                 const spriteMapLocation = this.level[y][x];
-                const setTile = () =>  {
-                    for (let i = 0; i < spriteMapLocation.sprites.length; i++) {
-                        const tile = new Tile(x, y);
-                        tile.setID(this.level[y][x].id);
-                        tile.setClickable(spriteMapLocation.clickable);
-                        if (tile.id === 0) {
-                            tile.setSprite(spriteMapLocation.sprites[Math.floor(Math.random() * spriteMapLocation.sprites.length)]);
-                            row.push(tile);
-                            return;
-                        } else {
-                            tile.setSprite(spriteMapLocation.sprites[i]);
-                        }
-                        row.push(tile);
-                    }
+                const tile = new Tile(x, y);
+                tile.setID(spriteMapLocation);
+                row.push(tile);
+                if (this.clickableTiles.includes(tile.id)) {
+                    tile.setClickable();
                 }
-                setTile();
-                
-                // if (this.doorTiles.includes(pos)) {
-                //     tile.setAsDoor();
-                // }
+                if (this.doorTiles.includes(tile.id)) {
+                    tile.setAsDoor();
+                }
 
             }
             this.world.push(row);
