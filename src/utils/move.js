@@ -51,7 +51,7 @@ class Tile {
 
 export default class World {
     constructor(level) {
-        this.clickableTiles = [0,20] //hard code allowed tiles - refer to key for ID's
+        this.clickableTiles = [0,20,21] //hard code allowed tiles - refer to key for ID's
         this.doorTiles = []
         this.level = level;
         this.world = [];

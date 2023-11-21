@@ -4,6 +4,7 @@ import drawSprites from '../utils/draw';
 export default function Tile(props) {
 
     function  handleTileClick() {
+        console.log([props.x, props.y])
         props.setClickedTile({
             x: props.x, 
             y: props.y

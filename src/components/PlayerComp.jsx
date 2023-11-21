@@ -5,8 +5,11 @@ import World from '../utils/move';
 
 export default function PlayerComp(props) {
 
-    const x = Math.floor(levels.map[0].length / 2);
-    const y = Math.floor(levels.map.length / 2);
+    
+    const [defaultPos, setDefaultPos] = React.useState({
+        left: `${props.movement.coords[0] * props.TILE_SIZE}px`,
+        top: `${props.movement.coords[1] * props.TILE_SIZE}px`
+    })
 
     const [walkClass, setWalkClass] = React.useState("standing-down");
     const [resetWalkingAnimation, setResetWalkingAnimation] = React.useState(false);
@@ -15,8 +18,8 @@ export default function PlayerComp(props) {
     const style = {
         width: props.TILE_SIZE,
         height: props.TILE_SIZE,
-        left: `${x * props.TILE_SIZE}px`,
-        top: `${y * props.TILE_SIZE}px`,
+        left: defaultPos.left,
+        top: defaultPos.top,
         translate: `${props.movement.x}px ${props.movement.y}px`
     }
     // React.useEffect(() => {

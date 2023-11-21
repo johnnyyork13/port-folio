@@ -18,28 +18,53 @@ function App() {
 
   // console.log(levels.one.length, levels.one[0].length);
 
-
   const TILE_SIZE = 50;
+  const centerMap = [Math.floor(levels.map[0].length/2), Math.floor(levels.map.length / 2)]
+  const playerStart = [30, Math.floor(levels.map.length / 2)];
+  const scaleAdjustment = window.innerHeight / levels.map.length * 2;
 
+  //console.log(-(centerMap[0] - playerStart[0]) * TILE_SIZE)
   const [page, setPage] = React.useState("none");
   const [level, setLevel] = React.useState([])
   const [movement, setMovement] = React.useState({
+    // x: -(centerMap[0] - playerStart[0]) * TILE_SIZE,
     x: 0,
     y: 0,
-    coords: [Math.floor(levels.map[0].length/2), Math.floor(levels.map.length / 2)]
+    coords: playerStart,
   })
-  const [mapMovement, setMapMovement] = React.useState({
-    x: 0,
-    y: 0
-  })
+  // const [mapMovement, setMapMovement] = React.useState({
+  //   x: (centerMap[0] + playerStart[0]) * TILE_SIZE,
+  //   y: 0
+  // })
   const [world, setWorld] = React.useState([]);
   const [clickedTile, setClickedTile] = React.useState({});
   const [shortestPath, setShortestPath] = React.useState([]);
   const [currentLevel, setCurrentLevel] = React.useState(levels.map);
+  const [mapTranslate, setMapTranslate] = React.useState({
+    x: 500,
+  })
+
+  console.log(scaleAdjustment);
+
+  const gridStyle = {
+    transform: `scale(${scaleAdjustment}%)`,
+    gridTemplateColumns: `repeat(${levels.map[0].length}, ${TILE_SIZE}px)`,
+    gridTemplateRows: `repeat(${levels.map.length}, ${TILE_SIZE}px)`,
+    translate: `-${movement.x * (scaleAdjustment / 100)}px`
+  }
+
+  // React.useEffect(() => {
+  //   if (initialMove) {
+  //     setMapTranslate((prev) => ({x: -movement.x}));
+  //   } else {
+  //     setInitialMove(true)
+  //   }
+  // }, [movement])
 
   React.useEffect(() => {
     setWorld(new World(currentLevel));
   }, [currentLevel]);
+
 
   //Rendered on screen
   React.useEffect(() => {
@@ -70,26 +95,9 @@ function App() {
       setShortestPath(world.movePlayerClick(movement, clickedTile));
     }
   }, [clickedTile])
-
-
-  React.useEffect(() => {
-    setMapMovement((prev) => ({
-      x: (movement.coords[0] >= 1 && movement.coords[0] < levels.map[0].length - 7) ? prev.x = movement.x : prev.x,
-      y: (movement.coords[1] >= 1 && movement.coords[1] < levels.map.length ) ? prev.y = movement.y : prev.y,
-    }))
-  }, [movement])
-
-  const gridStyleSize = {
-    width: `${levels.map[0].length * TILE_SIZE}px`,
-    height: `${levels.map.length * TILE_SIZE}px`,
-    gridTemplateColumns: `repeat(${levels.map[0].length}, ${TILE_SIZE}px)`,
-    gridTemplateRows: `repeat(${levels.map.length}, ${TILE_SIZE}px)`,
-    translate: `${-mapMovement.x}px ${-mapMovement.y}px`
-  }
-
   return (
     <div className="App">
-      <div className="game-container" style={gridStyleSize}>
+      <div className="game-container" style={gridStyle}>
         {level}
         <PlayerComp 
           movement={movement}
