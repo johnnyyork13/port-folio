@@ -25,7 +25,7 @@ export default function About(props) {
     const humor = statBar(10).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
 
     return (
-        <div className="about-container container">
+        <div className="modal-container">
             <div className="about-content content">
                 <aside className="about-sidebar">
                     <div className="about-img"></div>
@@ -50,7 +50,7 @@ export default function About(props) {
                     </div>
                     <div className="about-info-section">
                         <p className="about-info-header">Character Stats:</p>
-                        <p className="about-stats-body">
+                        <div className="about-stats-body">
                             <div className="about-stat">
                                 <p className="stat-name">Perception</p>
                                 <div className="stat-body">{perception}</div>
@@ -75,7 +75,7 @@ export default function About(props) {
                                 <p className="stat-name">Humor</p>
                                 <div className="stat-body">{humor}</div>
                             </div>
-                        </p>
+                        </div>
                     </div>
                 </section>
             </div>

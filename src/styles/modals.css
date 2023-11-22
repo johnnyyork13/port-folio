@@ -1,7 +1,10 @@
-.container   {
+.modal-container   {
     --border: 5px solid rgb(151, 122, 67);
-    --background: rgb(85, 83, 83);
-    --secondary-background: rgb(59, 57, 57);
+    --secondary-border: 3px solid rgb(151, 122, 67);
+    --background: rgb(105, 104, 104);
+    --secondary-background: rgb(75, 72, 72);
+    --tile-background: rgb(117, 117, 117);
+    --tile-background-hover: rgb(143, 140, 140);
     --grid-filled: rgb(0,0,0);
     --grid-empty: rgb(0,0,0);
     --text: rgb(230, 229, 229);
@@ -30,7 +33,7 @@
     width: 100%;
 }
 
-/* //////////////////ABOUT CONTAINER///////////////////////*/
+/* //////////////////ABOUT///////////////////////*/
 
 .about-content {
     display: grid;
@@ -57,7 +60,7 @@
 }
 
 .about-body {
-    
+
 }
 
 .about-info-section {
@@ -104,4 +107,70 @@
 
 .score-grid-filled {
     background-color: black;
+}
+
+/* /////////////////////SKILLS/////////////////////////////*/
+.skills-content {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.skill-display {
+    width: 95%;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.skills-container {
+    padding: 20px; 
+    border: var(--border);
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-background);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 50px;
+}
+
+.skill {
+    border: var(--secondary-border);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: var(--tile-background);
+}
+
+.skill:hover {
+    cursor: pointer;
+    background-color: var(--tile-background-hover);
+}
+
+.skill-name {
+    margin: 0;
+    margin-top: 5px;
+}
+
+
+
+
+
+/* //////////////////CONTACT///////////////////////*/
+
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.contact-body {
+    height: 200px;
+    width: 300px;
 }
