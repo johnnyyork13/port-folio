@@ -42,7 +42,7 @@ export default function PlayerComp(props) {
 
                         if (nextMove.isDoor) {
                             inDoor = true;
-                            doorNumber = nextMove.val;
+                            doorNumber = nextMove.id;
                         }
                         //move up
                         if (nextMove.x === playerTile.x && nextMove.y < playerTile.y) {
@@ -57,11 +57,29 @@ export default function PlayerComp(props) {
                         //move left
                         } else if (nextMove.y === playerTile.y && nextMove.x < playerTile.x) {
                             props.setMovement((prev) => ({...prev, x: prev.x -= props.TILE_SIZE, coords: [prev.coords[0] - 1, prev.coords[1]]}));
+                            props.setMapTranslate(function(prev){
+                                const rightBorderTileLimit = -19;
+                                const leftBorderTileLimit = 15;
+                                if (prev + 1 >= rightBorderTileLimit && prev + 1<= leftBorderTileLimit) {
+                                    return prev + 1;
+                                } else {
+                                    return prev;
+                                }
+                            })
                             playerTile.setPlayerPosition(playerTile.x - 1, playerTile.y);
                             setWalkClass("walk-left");
                         //move right
                         } else if (nextMove.y === playerTile.y && nextMove.x > playerTile.x) {
                             props.setMovement((prev) => ({...prev, x: prev.x += props.TILE_SIZE, coords: [prev.coords[0] + 1, prev.coords[1]]}));
+                            props.setMapTranslate(function(prev){
+                                const rightBorderTileLimit = -19;
+                                const leftBorderTileLimit = 15;
+                                if (prev - 1 >= rightBorderTileLimit && prev - 1 <= leftBorderTileLimit) {
+                                    return prev - 1;
+                                } else {
+                                    return prev;
+                                }
+                            })
                             playerTile.setPlayerPosition(playerTile.x + 1, playerTile.y);
                             setWalkClass("walk-right");
                         }
@@ -70,31 +88,33 @@ export default function PlayerComp(props) {
                         setResetWalkingAnimation((prev) => !prev);
                         setWalking(false);
                     }
-                }, 50);
+                }, 250);
                 if (inDoor) {
                     switch(doorNumber) {
-                        case 143: 
-                            props.setCurrentLevel(levels.house);
+                        case 362: 
+                            console.log("DOOR");
+                            props.setPage("about");
                             break;
-                        case 244: 
-                            props.setCurrentLevel(levels.bank);
+                        case 370: 
+                            props.setPage("skills");
                             break;
-                        case 337:
-                            props.setCurrentLevel(levels.gym);
+                        case 371:
+                            props.setPage("skills");
                             break;
-                        case 338:
-                            props.setCurrentLevel(levels.gym);
+                        case 266:
+                            props.setPage("projects");
                             break;
-                        case 245:
-                            props.setCurrentLevel(levels.bank);
+                        case 267:
+                            props.setPage("projects");
                             break;
-                        case 421:
-                            props.setCurrentLevel(levels.postOffice);
+                        case 269:
+                            props.setPage("contact");
                             break;
-                        case 2:
-                            props.setCurrentLevel(levels.map);
-                            break;
+                        default:
+                            props.setPage("home");
                     }
+                } else if (props.page !== "") {
+                    props.setPage("");
                 }
             }
             movePlayer();

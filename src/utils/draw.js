@@ -14,7 +14,9 @@ export default function drawSprites(tile) {
         let spriteX = tile.id % SPRITE_GRID_WIDTH;
         let spriteY = Math.floor(tile.id / SPRITE_GRID_WIDTH);
         if (tile.id === 0) {
-           spriteX = Math.floor(Math.random() * 9); 
+           spriteX = Math.floor(Math.random() * 9); //9 is the number of different grass tiles
+        } else if (tile.id === 120) {
+           spriteX = Math.floor(Math.random() * 9); //9 is the number of different water tiles
         }
         return {
             backgroundImage: `url('${spriteSheet}')`,

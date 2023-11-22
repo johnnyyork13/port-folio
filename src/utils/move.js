@@ -8,6 +8,7 @@ class Tile {
         this.parent = null;
         this.player = false;
         this.isDoor = null;
+        this.isWater = false;
         this.sprite = null;
     }
 
@@ -15,8 +16,8 @@ class Tile {
         this.id = id;
     }
 
-    setSprite(sprite) {
-        this.sprite = sprite;
+    setSprite(x, y) {
+        this.sprite = [x, y];
     }
 
     setAsPlayer() {
@@ -47,16 +48,35 @@ class Tile {
     setAsDoor() {
         this.isDoor = true;
     }
+
+    setAsWater() {
+        this.isWater = true;
+    }
 }
 
 export default class World {
     constructor(level) {
-        this.clickableTiles = [0,20,21] //hard code allowed tiles - refer to key for ID's
-        this.doorTiles = []
+        this.clickableTiles = [0,20,21,60,61,62,63,64,69,70,71,72,73,74,80,82,83,84,85,86,87,88,89,90,91,92,266,267,269,362,370,371] //hard code allowed tiles - refer to key for ID's
+        this.doorTiles = [362, 370, 371, 266, 267, 269]
+        this.waterTiles = [];
         this.level = level;
         this.world = [];
         this.TILE_SIZE = 50;
         this.createObjects();
+        //this.updateWater();
+    }
+
+    updateWater() {
+        // setTimeout(() => {
+        //     for (let i = 0; i < this.waterTiles.length; i++) {
+        //         if (this.waterTiles[i].id === 120) {
+        //             this.waterTiles[i].setID(140)
+        //         } else {
+        //             this.waterTiles[i].setID(120);
+        //         }
+        //     }
+        //     this.updateWater();
+        // }, 1000);
     }
 
     createObjects() {
@@ -74,6 +94,11 @@ export default class World {
                 if (this.doorTiles.includes(tile.id)) {
                     tile.setAsDoor();
                 }
+                if (tile.id === 120) {
+                    tile.setAsWater();
+                    this.waterTiles.push(tile);
+                }
+
 
             }
             this.world.push(row);

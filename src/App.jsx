@@ -3,6 +3,9 @@ import {v4 as uuidv4} from 'uuid';
 import './App.css'
 import levels from './assets/levels';
 import World from './utils/move';
+import cloudOne from './assets/cloud-one.png';
+import cloudTwo from './assets/cloud-two.png';
+import palmTree from './assets/palm-tree.png';
 
 //import Block from './assets/Block';
 //import PlayerClass from './assets/Player';
@@ -28,8 +31,8 @@ function App() {
   const [level, setLevel] = React.useState([])
   const [movement, setMovement] = React.useState({
     // x: -(centerMap[0] - playerStart[0]) * TILE_SIZE,
-    x: 0,
-    y: 0,
+    x: 1,
+    y: 1,
     coords: playerStart,
   })
   // const [mapMovement, setMapMovement] = React.useState({
@@ -40,26 +43,17 @@ function App() {
   const [clickedTile, setClickedTile] = React.useState({});
   const [shortestPath, setShortestPath] = React.useState([]);
   const [currentLevel, setCurrentLevel] = React.useState(levels.map);
-  const [mapTranslate, setMapTranslate] = React.useState({
-    x: 500,
-  })
-
-  console.log(scaleAdjustment);
+  const [mapTranslate, setMapTranslate] = React.useState(15)
+  const [actualTileSize, setActualTileSize] = React.useState(0);
 
   const gridStyle = {
     transform: `scale(${scaleAdjustment}%)`,
     gridTemplateColumns: `repeat(${levels.map[0].length}, ${TILE_SIZE}px)`,
     gridTemplateRows: `repeat(${levels.map.length}, ${TILE_SIZE}px)`,
-    translate: `-${movement.x * (scaleAdjustment / 100)}px`
+    translate: `${mapTranslate * actualTileSize}px`
+    // translate: `-${movement.x * (scaleAdjustment / 100)}px`
   }
 
-  // React.useEffect(() => {
-  //   if (initialMove) {
-  //     setMapTranslate((prev) => ({x: -movement.x}));
-  //   } else {
-  //     setInitialMove(true)
-  //   }
-  // }, [movement])
 
   React.useEffect(() => {
     setWorld(new World(currentLevel));
@@ -83,6 +77,7 @@ function App() {
                         tile={tile}
                         TILE_SIZE={TILE_SIZE}
                         setClickedTile={setClickedTile}
+                        setActualTileSize={setActualTileSize}
                       />
           }) 
         })
@@ -98,13 +93,25 @@ function App() {
   return (
     <div className="App">
       <div className="game-container" style={gridStyle}>
+        <img src={cloudOne} className="cloud cloud-one"></img>
+        <img src={cloudTwo} className="cloud cloud-two"></img>
+        <img src={palmTree} className="tree tree-one"></img>
+        <img src={palmTree} className="tree tree-two"></img>
+        <img src={palmTree} className="tree tree-three"></img>
+        <img src={palmTree} className="tree tree-four"></img>
+        <img src={palmTree} className="tree tree-five"></img>
+        <img src={palmTree} className="tree tree-six"></img>
+        <img src={palmTree} className="tree tree-seven"></img>
+        <img src={palmTree} className="tree tree-eight"></img>
         {level}
         <PlayerComp 
           movement={movement}
           setMovement={setMovement}
           TILE_SIZE={TILE_SIZE}
           shortestPath={shortestPath}
-          setCurrentLevel={setCurrentLevel}
+          setMapTranslate={setMapTranslate}
+          setPage={setPage}
+          page={page}
         />
       </div>
       {page === "about" &&

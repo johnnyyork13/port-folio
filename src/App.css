@@ -32,19 +32,99 @@ body {
 }
 
 .game-container {
-    transform: scale(160%);
-    position: relative;
+    /* translate: 401px !important; */
+    /* transform: scale(160%); */
+    position: absolute;
     display: grid;
     transition-property: translate;
     transition-duration: .5s;
-    background-color: #46AD00;
+    background-color: #4F5AFF;
     /* grid-template-columns: repeat(11, 50px);
     grid-template-rows: repeat(11, 50px); */
 }
 
+.sky {
+    z-index: 4 !important;
+}
+
+.cloud {
+    position: absolute;
+    animation-name: moveCloud;
+    animation-iteration-count: infinite;
+    z-index: 5;
+}
+
+.cloud-one {
+    top: -10;
+    right: 500px;
+    animation-duration: 180s;
+}
+
+.cloud-two {
+    top: -20px;
+    right: 100px;
+    animation-duration: 240s;
+}
+
+.tree {
+    position: absolute;
+    pointer-events: none;
+    z-index: 7;
+}
+
+.tree-one {
+    left: 1320px;
+    top: 237px;
+}
+
+.tree-two {
+    left: 1520px;
+    top: 237px;
+}
+
+.tree-three {
+    left: 1930px;
+    top: 137px;
+}
+
+.tree-four {
+    left: 2580px;
+    top: 137px;
+}
+
+.tree-five {
+    left: 3280px;
+    top: 87px;
+}
+
+.tree-six {
+    left: 1220px;
+    top: 637px;
+}
+
+.tree-seven {
+    left: 1570px;
+    top: 637px;
+}
+
+.tree-eight {
+    left: 1030px;
+    top: 237px;
+}
+
+@keyframes moveCloud {
+    0% {
+        translate: 0px;
+    }
+    100% {
+        translate: -4000px;
+    }
+}
+
 .tile {
     /* border: 1px solid black; */
-    transform: scale(101%);
+    z-index: 5;
+    transform: scale(102%);
     position: relative;
 }
 
@@ -59,9 +139,31 @@ body {
     height: 100%;
 }
 
+.water {
+    animation-name: moveWater;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moveWater {
+    0%{
+        translate: -5px;
+    }
+    25% {
+        translate: 0px;
+    }
+    75% {
+        translate: 5px;
+    }
+    100% {
+        translate: 0px;
+    }
+}
+
 .player-container {
     position: absolute;
-    z-index: 1;
+    z-index: 6;
     transition-property: translate;
     transition-duration: .3s;
     display: flex;
