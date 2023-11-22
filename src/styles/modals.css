@@ -1,0 +1,107 @@
+.container   {
+    --border: 5px solid rgb(151, 122, 67);
+    --background: rgb(85, 83, 83);
+    --secondary-background: rgb(59, 57, 57);
+    --grid-filled: rgb(0,0,0);
+    --grid-empty: rgb(0,0,0);
+    --text: rgb(230, 229, 229);
+    --border-radius: 15px;
+    border: var(--border);
+    background-color: var(--background);
+    color: var(--text);
+    border-radius: var(--border-radius);
+    margin: 200px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    font-size: 1rem;
+}
+.close-container-btn {
+  
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+}
+
+/* //////////////////ABOUT CONTAINER///////////////////////*/
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.about-sidebar {
+    border: var(--border);
+    background-color: var(--secondary-background);
+    border-radius: var(--border-radius);
+    padding: 10px;
+}
+
+.about-img {
+    background: url('../assets/player.png') -0px -150px;
+    transform: scale(200%);
+    height: 50px;
+    width: 50px;
+    margin-bottom: 40px;
+}
+
+.about-summary {
+}
+
+.about-body {
+    
+}
+
+.about-info-section {
+    background-color: var(--secondary-background);
+    border: var(--border);
+    border-radius: var(--border-radius);
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.about-header, .about-info-header {
+    font-weight: bolder;
+}
+
+.about-stats-body {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+.about-stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-name {
+    margin: 0;
+}
+
+.stat-body {
+    display: grid;
+    grid-template-columns: repeat(10, 10px);
+    gap: 3px;
+}
+
+.score-grid {
+    border: 1px solid black;
+    height: 10px;
+    width: 10px;
+}
+
+.score-grid-filled {
+    background-color: black;
+}

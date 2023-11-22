@@ -58,12 +58,17 @@ export default function PlayerComp(props) {
                         } else if (nextMove.y === playerTile.y && nextMove.x < playerTile.x) {
                             props.setMovement((prev) => ({...prev, x: prev.x -= props.TILE_SIZE, coords: [prev.coords[0] - 1, prev.coords[1]]}));
                             props.setMapTranslate(function(prev){
-                                const rightBorderTileLimit = -19;
-                                const leftBorderTileLimit = 15;
-                                if (prev + 1 >= rightBorderTileLimit && prev + 1<= leftBorderTileLimit) {
-                                    return prev + 1;
+                                const totalScreenTiles = Math.ceil(levels.map[0].length / 2);
+                                const leftLimit = totalScreenTiles - ((window.innerWidth / props.actualTileSize) / 2 + 1);
+                                if (prev.player + 1 <= leftLimit && prev.player + 1 > prev.offsetMap) {
+                                    return {
+                                        offsetMap: prev.offsetMap + 1,
+                                        player: prev.player + 1}
                                 } else {
-                                    return prev;
+                                    return {
+                                        ...prev,
+                                        player: prev.player + 1,
+                                    };
                                 }
                             })
                             playerTile.setPlayerPosition(playerTile.x - 1, playerTile.y);
@@ -72,12 +77,18 @@ export default function PlayerComp(props) {
                         } else if (nextMove.y === playerTile.y && nextMove.x > playerTile.x) {
                             props.setMovement((prev) => ({...prev, x: prev.x += props.TILE_SIZE, coords: [prev.coords[0] + 1, prev.coords[1]]}));
                             props.setMapTranslate(function(prev){
-                                const rightBorderTileLimit = -19;
-                                const leftBorderTileLimit = 15;
-                                if (prev - 1 >= rightBorderTileLimit && prev - 1 <= leftBorderTileLimit) {
-                                    return prev - 1;
+                                const totalScreenTiles = Math.ceil(levels.map[0].length / 2);
+                                const rightLimit = -(totalScreenTiles - ((window.innerWidth / props.actualTileSize) / 2 + 1));
+                                if (prev.player - 1 >= rightLimit && prev.player - 1 < prev.offsetMap) {
+                                    return {
+                                        offsetMap: prev.offsetMap -1,
+                                        player: prev.player - 1
+                                    }
                                 } else {
-                                    return prev;
+                                    return {
+                                        ...prev,
+                                        player: prev.player -1,
+                                    };
                                 }
                             })
                             playerTile.setPlayerPosition(playerTile.x + 1, playerTile.y);
@@ -88,7 +99,7 @@ export default function PlayerComp(props) {
                         setResetWalkingAnimation((prev) => !prev);
                         setWalking(false);
                     }
-                }, 250);
+                }, 50);
                 if (inDoor) {
                     switch(doorNumber) {
                         case 362: 

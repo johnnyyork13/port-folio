@@ -1,6 +1,6 @@
 import React from 'react';
 import {v4 as uuidv4} from 'uuid';
-import './App.css'
+import './styles/App.css'
 import levels from './assets/levels';
 import World from './utils/move';
 import cloudOne from './assets/cloud-one.png';
@@ -43,14 +43,17 @@ function App() {
   const [clickedTile, setClickedTile] = React.useState({});
   const [shortestPath, setShortestPath] = React.useState([]);
   const [currentLevel, setCurrentLevel] = React.useState(levels.map);
-  const [mapTranslate, setMapTranslate] = React.useState(15)
+  const [mapTranslate, setMapTranslate] = React.useState({
+    player: 15,
+    offsetMap: 15,
+  })
   const [actualTileSize, setActualTileSize] = React.useState(0);
 
   const gridStyle = {
     transform: `scale(${scaleAdjustment}%)`,
     gridTemplateColumns: `repeat(${levels.map[0].length}, ${TILE_SIZE}px)`,
     gridTemplateRows: `repeat(${levels.map.length}, ${TILE_SIZE}px)`,
-    translate: `${mapTranslate * actualTileSize}px`
+    translate: `${mapTranslate.offsetMap * actualTileSize}px`
     // translate: `-${movement.x * (scaleAdjustment / 100)}px`
   }
 
@@ -92,6 +95,7 @@ function App() {
   }, [clickedTile])
   return (
     <div className="App">
+      {/* <div className="mode-slider"></div> */}
       <div className="game-container" style={gridStyle}>
         <img src={cloudOne} className="cloud cloud-one"></img>
         <img src={cloudTwo} className="cloud cloud-two"></img>
@@ -112,19 +116,28 @@ function App() {
           setMapTranslate={setMapTranslate}
           setPage={setPage}
           page={page}
+          actualTileSize={actualTileSize}
         />
       </div>
       {page === "about" &&
-        <About />
+        <About
+          setPage={setPage}
+        />
       }
       {page === "projects" &&
-        <Projects />
+        <Projects 
+          setPage={setPage}
+        />
       }
       {page === "skills" &&
-        <Skills />
+        <Skills 
+          setPage={setPage}
+        />
       }
       {page === "contact" &&
-        <Contact />
+        <Contact 
+          setPage={setPage}
+        />
       }
     </div>
   )
