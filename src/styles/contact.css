@@ -1,0 +1,10 @@
+.contact-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.contact-body {
+    height: 200px;
+    width: 300px;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/modals.css';
+import '../styles/about.css';
 import {v4 as uuidv4} from 'uuid';
 
 export default function About(props) {
@@ -25,7 +26,7 @@ export default function About(props) {
     const humor = statBar(10).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
 
     return (
-        <div className="modal-container">
+        <div className="modal-container about-modal-container">
             <div className="about-content content">
                 <aside className="about-sidebar">
                     <div className="about-img"></div>
@@ -44,12 +45,12 @@ export default function About(props) {
                 </aside>
                 <section className="about-summary">
                     <div className="about-info-section">
-                        <p className="about-header">Character Summary:</p>
+                        <p className="about-info-header">Character Summary</p>
                         <p className="about-body">Currently studying Software Application Development at Mercer University. 
                             While not building modern, responsive web applications, this player enjoys woodworking, reading, and riding his motorcycle.</p>
                     </div>
                     <div className="about-info-section">
-                        <p className="about-info-header">Character Stats:</p>
+                        <p className="about-info-header">Character Stats</p>
                         <div className="about-stats-body">
                             <div className="about-stat">
                                 <p className="stat-name">Perception</p>
@@ -79,7 +80,7 @@ export default function About(props) {
                     </div>
                 </section>
             </div>
-            <button className="close-container-btn" onClick={() => props.setPage("")}>Close</button>
+            <button className="close-container-btn about-close-container-btn" onClick={() => props.setPage("")}>Close</button>
         </div>
     )
 }

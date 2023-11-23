@@ -52,7 +52,7 @@ export default function Contact(props) {
                     )}>Pixel-based Compliment</button>
                 </div>
             </div>
-            <button className="close-container-btn">Close</button>
+            <button className="close-container-btn" onClick={() => props.setPage("")}>Close</button>
         </div>
     )
 }

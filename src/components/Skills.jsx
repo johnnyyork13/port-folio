@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/skills.css';
 import htmlLogo from '../assets/html-logo.svg';
 import cssLogo from '../assets/css-logo.svg';
 import javascriptLogo from '../assets/javascript-logo.svg';
@@ -17,9 +18,9 @@ export default function Skills(props) {
     const [skill, setSkill] = React.useState("");
 
     return (
-        <div className="modal-container">
+        <div className="modal-container skills-modal-container">
             <div className="skills-content content">
-                <p>Skill Deposits</p>
+                <p>Skill Bank (Technologies I am Familiar With)</p>
                 <div className="skill-display">{skill === "" ? "Hover over a skill to check deposit." : skill}</div>
                 <div className="skills-container">
                     <img className="skill" src={htmlLogo} onMouseEnter={() => setSkill("HTML")}></img>
@@ -32,11 +33,23 @@ export default function Skills(props) {
                     <img className="skill" src={nodeLogo} onMouseEnter={() => setSkill("NodeJS")}></img>
                     <img className="skill" src={linuxLogo} onMouseEnter={() => setSkill("Linux")}></img>
                     <img className="skill" src={githubLogo} onMouseEnter={() => setSkill("GitHub")}></img>
-                    <div className="skill"></div>
-                    <div className="skill"></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
                 </div>
             </div>
-            <button className="close-container-btn" onClick={() => props.setPage("")}>Close</button>
+            <button className="close-container-btn close-skills-container-btn" onClick={() => props.setPage("")}>Close</button>
         </div>
     )
 }

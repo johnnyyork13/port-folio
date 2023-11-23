@@ -1,0 +1,55 @@
+.project-modal-container {
+    --border-color-main: rgb(247, 31, 31);
+    --background-color-main: rgb(82, 82, 82);
+    --background-color-secondary: rgb(148, 144, 144);
+    background-image: url('../assets/gym-background-main.png');
+    border: 5px solid var(--border-color-main);
+    border-radius: 15px;
+    color: white;
+}
+
+.projects-container {
+    max-height: 500px;
+    display: grid;
+    grid-auto-rows: 1fr;
+    overflow: auto;
+}
+
+::-webkit-scrollbar {
+    background-color: blue;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color-secondary);
+    background: white;
+}
+
+.projects-header {
+    text-align: center;
+    font-weight: bolder;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    margin: 20px;
+    padding: 10px;
+    /* border-bottom: 2px solid var(--border-color-main); */
+    background-color: var(--background-color-main);
+}
+
+.project p, .project a {
+    margin: 5px;
+}
+
+.project a {
+    color: white;
+}
+
+.project-thumbnail {
+    box-shadow: inset 0 0 10px var(--secondary-border-color);
+    height: 100px;
+    width: 100px;
+}
