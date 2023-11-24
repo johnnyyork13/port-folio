@@ -8,6 +8,16 @@
     color: white;
 }
 
+.close-projects-container-btn {
+    background-color: var(--border-color-main);
+    border: 2px solid var(--background-color-main);
+    color: white;
+}
+
+.close-projects-container-btn:hover {
+    background-color: var(--background-color-secondary);
+}
+
 .projects-container {
     max-height: 500px;
     display: grid;
@@ -16,12 +26,16 @@
 }
 
 ::-webkit-scrollbar {
-    background-color: blue;
+    background-color: white;
+    
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--background-color-secondary);
-    background: white;
+    background-color: var(--background-color-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color-main);
 }
 
 .projects-header {

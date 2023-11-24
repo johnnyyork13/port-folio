@@ -8,7 +8,7 @@ export default function Projects(props) {
     return (
         <div className="modal-container project-modal-container">
             <div className="projects-content content">
-                <p className="projects-header">Exercises (projects I've worked on)</p>
+                <p className="projects-header">Exercises (Projects I've Worked On)</p>
                 <div className="projects-container">
                     <ProjectTile
                         thumbnail={bloggyLogo} 
@@ -47,7 +47,7 @@ export default function Projects(props) {
                     />
                 </div>
             </div>
-            <button className="close-container-btn" onClick={() => props.setPage("")}>Close</button>
+            <button className="close-container-btn close-projects-container-btn" onClick={() => props.setPage("")}>Close</button>
         </div>
     )
 }
