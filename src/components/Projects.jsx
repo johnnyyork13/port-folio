@@ -2,6 +2,10 @@ import React from 'react';
 import '../styles/projects.css';
 import ProjectTile from './ProjectTile';
 import bloggyLogo from '../assets/bloggyai-logo.svg';
+import wishboxLogo from '../assets/wishbox-logo.png';
+import pokemonLogo from '../assets/pokemon-logo.png';
+import battleshipLogo from '../assets/battleship-logo.png';
+import reactcvLogo from '../assets/reactcv-logo.png';
 
 export default function Projects(props) {
 
@@ -18,28 +22,28 @@ export default function Projects(props) {
                         liveLink={""}
                     />
                     <ProjectTile
-                        thumbnail={""} 
+                        thumbnail={wishboxLogo} 
                         name={"WishBox"}
                         body={"Gaming app that allows users to search for and save games to a wishlist."}
                         github={"https://www.github.com/johnnyyork13/react-digital-game-app"}
                         liveLink={""}
                     />
                     <ProjectTile
-                        thumbnail={""} 
+                        thumbnail={pokemonLogo} 
                         name={"Pokemon Deck Builder"}
                         body={"Virtual Pokemon card deck building app allowing users to search and sort their pokemon cards."}
                         github={"https://www.github.com/johnnyyork13/pokemon-deck-builder"}
                         liveLink={"https://johnnyyork13.github.io/pokemon-deck-builder"}
                     />
                     <ProjectTile
-                        thumbnail={""} 
+                        thumbnail={battleshipLogo} 
                         name={"Battleship"}
                         body={"Battleship simulator where a player can compete against the computer to sink each other's ships."}
                         github={"https://www.github.com/johnnyyork13/battleship"}
                         liveLink={"https://johnnyyork13.github.io/battleship/public/index.html"}
                     />
                     <ProjectTile
-                        thumbnail={""} 
+                        thumbnail={reactcvLogo} 
                         name={"ReactCV"}
                         body={"Simple CV creator built with React that transforms input into a stylish resume."}
                         github={"https://www.github.com/johnnyyork13/react-cv"}

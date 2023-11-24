@@ -6,9 +6,6 @@ import World from './utils/move';
 import cloudOne from './assets/cloud-one.png';
 import cloudTwo from './assets/cloud-two.png';
 import palmTree from './assets/palm-tree.png';
-
-//import Block from './assets/Block';
-//import PlayerClass from './assets/Player';
 import PlayerComp from './components/PlayerComp';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -27,7 +24,7 @@ function App() {
   const scaleAdjustment = window.innerHeight / levels.map.length * 2;
 
   //console.log(-(centerMap[0] - playerStart[0]) * TILE_SIZE)
-  const [page, setPage] = React.useState("none");
+  const [page, setPage] = React.useState("contact");
   const [level, setLevel] = React.useState([])
   const [movement, setMovement] = React.useState({
     // x: -(centerMap[0] - playerStart[0]) * TILE_SIZE,

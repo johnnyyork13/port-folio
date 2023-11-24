@@ -1,10 +1,159 @@
-.contact-content {
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+.contact-modal-container {
+    font-family: 'Special Elite';
+    padding: 0;
+    height: 700px;
+    min-width: 700px;
+    position: relative;
+    background-image: url('../assets/envelope.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
+
+.move-letter {
+    animation-name: moveLetter;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.move-envelope {
+    animation-name: moveEnvelope;
+    animation-duration: 2.2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.hide-btn {
+    visibility: hidden;
+}
+
+@keyframes moveLetter {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(350px);
+        visibility: hidden;
+    }
+}
+
+@keyframes moveEnvelope {
+    0% {
+        transform: translateY(0px);
+        background-image: url('../assets/envelope-closed.png');
+    }
+    50% {
+        transform: translateY(-250px);
+        background-image: url('../assets/envelope-closed.png');
+    }
+    90% {
+        transform: translate(2000px, -250px);
+        background-image: url('../assets/envelope-closed.png');
+    }
+    100% {
+        transform: translate(2000px, -250px);
+        background-image: url('../assets/envelope-closed.png');
+        visibility: hidden;
+    }
+}
+
+.letter-container {
+    overflow: hidden;
+    width: 480px;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    position: relative;
+    left: -15px;
+}
+
+
+.contact-letter {
+    background-image: url('../assets/letter.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+    left: -12px;
+    width: 480px;
+    padding: 15px;
     display: flex;
+    justify-content: center;
+    z-index: 5;
+}
+
+.contact-content {
+    margin: 10px;
+    display: flex;
+    position: relative;
     flex-direction: column;
-    padding: 20px;
+    width: 450px;
+    padding: 10px;
+}
+
+.contact-content-header {
+    margin-bottom: 5px;
+}
+
+.contact-input {
+    margin-top: 15px;
 }
 
 .contact-body {
     height: 200px;
     width: 300px;
 }
+
+.contact-body-container {
+    width: 400px;
+    height: 150px;
+}
+.contact-body {
+    box-sizing: border-box;
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+
+.contact-input input, .contact-input textarea {
+    font-family: 'Special Elite';
+    box-sizing: border-box;
+    border: 2px solid white;
+    font-size: 1rem;
+    position: relative;
+    left: -3px;
+}
+
+.contact-input input {
+    height: 30px;
+}
+
+.contact-from-container label {
+    margin-bottom: 5px;
+}
+
+.contact-from-container {
+    width: 400px;
+    position: relative;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-from {
+}
+
+.contact-email-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-email {
+    margin-left: 10px;
+    min-width: 200px;
+}
+
+
