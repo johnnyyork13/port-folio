@@ -11,20 +11,70 @@
     align-items: center;
 }
 
-.envelope-front {
+.envelope-container {
     width: 700px;
+    height: 350px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: left;
 }
 
-.envelope-front img {
+.close-envelope-btn {
+    position: absolute;
+    left: 10px;
+    z-index: 3;
+    top: 10px;
+    font-size: 1rem;
+    font-family: "Special Elite";
+    border: 1px solid white;
+    background-color: white;
+    cursor: pointer;
+}
+
+.github-icon, .linkedIn-icon {
+    position: absolute;
+    z-index: 1;
+    color: black;
+}
+
+.github-icon:hover, .linkedIn-icon:hover {
+    color: rgb(71, 70, 70);
+}
+/* GitHub SVG Material Icon */
+.github-icon {
+    top: 67px;
+    right: 153px;
+}
+
+.linkedIn-icon {
+    top: 40px;
+    right: 47px;
+}
+
+.github-icon svg, .linkedIn-icon svg {
+    width: 50px;
+    height: 50px;
+}
+
+/* LinkedIn SVG Material Icon */
+.linkedIn-icon svg:nth-child(2) {
+    top: 0;
+}
+
+.envelope {
     width: 100%;
     position: absolute;
     z-index: 0;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.envelope-back-cover {
+    width: 100%;
+    position: absolute;
 }
 
 .envelope-text {
@@ -33,7 +83,222 @@
     left: 20px;
 }
 
+.envelope-text a, .paper-container a {
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+}
 
+@keyframes paperLeave {
+    0% {
+        translate: 0px 650px;
+        visibility: visible;
+    }
+    50% {
+        translate: 0px 300px;
+        visibility: visible;
+    }
+    90% {
+        translate: 0px 650px;
+        visibility: visible;
+    }
+    100% {
+        translate: 0px 650px;
+        visibility: visible;
+    }
+}
+
+@keyframes paperEnter {
+    0% {
+        translate: 0px 0px;
+        visibility: visible;
+    }
+    100% {
+        translate: 0px 650px;
+        visibility: visible;
+    }
+}
+
+@keyframes envelopeLeave {
+    0% {
+        translate: 0px 0px;
+    }
+    20% {
+        translate: 0px 0px;
+    }
+    100% {
+        translate: 2000px 0px;
+    }
+}
+
+.paper-container {
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    /* transition-property: translate;
+    transition-duration: 1s;
+    transition-timing-function: ease-out; */
+    position: absolute;
+    top: -800px;
+    z-index: 1;
+    animation-duration: .8s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    /* animation-name: paperEnter; */
+}
+
+.close-paper-btn {
+    position: absolute;
+    right: 160px;
+    z-index: 3;
+    top: 20px;
+    background-color: white;
+    border: 1px solid white;
+    font-family: "Special Elite";
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.paper {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.paper-container input, .paper-container p, .paper-container textarea, .paper-container a {
+    position: relative;
+    z-index: 2;
+    left: 120px;
+}
+
+.paper-container input, .paper-container textarea {
+    left: 110px;
+    padding: 10px;
+}
+
+.paper-container p {
+    margin: 5px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.dear-p {
+    margin-top: 30px !important;
+}
+
+.paper-body {
+    resize: none;
+    box-sizing: border-box;
+    width: 430px;
+    height: 300px;
+    border: 1px solid white;
+    font-size: 1rem;
+    font-family: "Special Elite";
+}
+
+.paper-from {
+    height: 20px;
+    font-size: 1rem;
+    border: 1px solid white;
+    font-family: "Special Elite";
+}
+
+.email-span {
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+
+.email-span p{
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.email-span input {
+    margin-left: 10px;
+    padding: 0;
+    padding-left: 5px;
+    height: 30px;
+    border: 1px solid white;
+    font-family: "Special Elite";
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.paper-send-btn {
+    width: 100% !important;
+    text-align: center !important;
+}
+
+.message-sent-modal {
+    z-index: 3;
+    background-color: white;
+    height: 200px;
+    width: 350px;
+    border: 2px solid rgb(71, 70, 70);
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes moveMessageSentModal {
+    0% {
+        transform: rotate(20deg);
+        visibility: visible;
+    }
+    10% {
+        transform: rotate(-20deg);
+        visibility: visible;
+    }
+    20% {
+        transform: rotate(10deg);
+        visibility: visible;
+    }
+    30% {
+        transform: rotate(-10deg);
+        visibility: visible;
+    }
+    40% {
+        transform: rotate(10deg);
+        visibility: visible;
+    }
+    50% {
+        transform: rotate(-10deg);
+        visibility: visible;
+    }
+    60% {
+        transform: rotate(5deg);
+        visibility: visible;
+    }
+    70% {
+        transform: rotate(-5deg);
+        visibility: visible;
+    }
+    80% {
+        transform: rotate(0deg);
+        visibility: visible;
+    }
+}
+
+.close-message-sent-modal-btn {
+    border: 1px solid white;
+    background-color: white;
+    font-family: "Special Elite";
+    font-size: 1rem;
+    cursor: pointer;
+}
 /* 
 @media screen and (max-width: 700px) {
     .contact-modal-container{

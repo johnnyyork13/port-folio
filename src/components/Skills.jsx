@@ -10,6 +10,8 @@ import expressLogo from '../assets/express-logo.svg';
 import nodeLogo from '../assets/node-logo.svg';
 import linuxLogo from '../assets/linux-logo.svg';
 import githubLogo from '../assets/github-logo.svg';
+import figmaLogo from '../assets/figma-logo.svg';
+import adobeLogo from '../assets/adobe-logo.svg';
 
 export default function Skills(props) {
 
@@ -23,18 +25,18 @@ export default function Skills(props) {
                 <p>Skill Bank (Technologies I am Familiar With)</p>
                 <div className="skill-display">{skill === "" ? "Hover over a skill to check deposit." : skill}</div>
                 <div className="skills-container">
-                    <img className="skill" src={htmlLogo} onMouseEnter={() => setSkill("HTML")}></img>
-                    <img className="skill" src={cssLogo} onMouseEnter={() => setSkill("CSS")}></img>
+                    <img className="skill" src={htmlLogo} onMouseEnter={() => setSkill("HTML5")}></img>
+                    <img className="skill" src={cssLogo} onMouseEnter={() => setSkill("CSS3")}></img>
                     <img className="skill" src={javascriptLogo} onMouseEnter={() => setSkill("JavaScript")}></img>
                     <img className="skill" src={pythonLogo} onMouseEnter={() => setSkill("Python")}></img>
                     <img className="skill" src={reactLogo} onMouseEnter={() => setSkill("ReactJS")}></img>
                     <img className="skill" src={mongoLogo} onMouseEnter={() => setSkill("MongoDB")}></img>
                     <img className="skill" src={expressLogo} onMouseEnter={() => setSkill("Express")}></img>
                     <img className="skill" src={nodeLogo} onMouseEnter={() => setSkill("NodeJS")}></img>
-                    <img className="skill" src={linuxLogo} onMouseEnter={() => setSkill("Linux")}></img>
+                    <img className="skill" src={figmaLogo} onMouseEnter={() => setSkill("Figma")}></img>
+                    <img className="skill" src={adobeLogo} onMouseEnter={() => setSkill("Adobe Photoshop")}></img>
                     <img className="skill" src={githubLogo} onMouseEnter={() => setSkill("GitHub")}></img>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <img className="skill" src={linuxLogo} onMouseEnter={() => setSkill("Linux")}></img>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>

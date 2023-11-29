@@ -19,7 +19,7 @@ export default function Projects(props) {
                         name={"BloggyAI"}
                         body={"Blog application that creates blog posts based on a prompt by a user."}
                         github={"https://www.github.com/johnnyyork13/blog-api"}
-                        liveLink={""}
+                        liveLink={"http://johnnyyork13.github.io/blog-api"}
                     />
                     <ProjectTile
                         thumbnail={wishboxLogo} 

@@ -24,7 +24,7 @@ function App() {
   const scaleAdjustment = window.innerHeight / levels.map.length * 2;
 
   //console.log(-(centerMap[0] - playerStart[0]) * TILE_SIZE)
-  const [page, setPage] = React.useState("contact");
+  const [page, setPage] = React.useState("");
   const [level, setLevel] = React.useState([])
   const [movement, setMovement] = React.useState({
     // x: -(centerMap[0] - playerStart[0]) * TILE_SIZE,
