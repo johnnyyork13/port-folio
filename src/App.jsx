@@ -14,12 +14,15 @@ import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import Bulletin from './components/Bulletin';
 
 import Tile from './components/Tile';
 
 function App() {
 
   // console.log(levels.one.length, levels.one[0].length);
+  const root = "https://us-central1-portfolio-game-backend.cloudfunctions.net/api";
+  // const root = "http://localhost:3000"
 
   const TILE_SIZE = 50;
   const centerMap = [Math.floor(levels.map[0].length/2), Math.floor(levels.map.length / 2)]
@@ -57,7 +60,6 @@ function App() {
     translate: `${mapTranslate.offsetMap * actualTileSize}px`
     // translate: `-${movement.x * (scaleAdjustment / 100)}px`
   }
-
 
   React.useEffect(() => {
     setWorld(new World(currentLevel));
@@ -149,6 +151,13 @@ function App() {
       {page === "contact" &&
         <Contact 
           setPage={setPage}
+          root={root}
+        />
+      }
+      {page === "bulletin" &&
+        <Bulletin 
+          setPage={setPage}
+          root={root}
         />
       }
     </div>

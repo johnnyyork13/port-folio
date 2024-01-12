@@ -10,9 +10,23 @@
         margin: 50px;
     }
 
-    .start-modal-container {
+    .App .start-modal-container {
         margin-right: 0px;
         margin-bottom: 300px;
+    }
+
+    .App .start-modal-container p {
+        font-size: .8rem;
+        width: 250px;
+    } 
+
+    .App .start-modal-container p:last-child {
+        margin-bottom: 30px;
+    }
+
+    .App .close-start-modal-btn {
+        font-size: 1.2rem;
+        margin-left: 80px;
     }
 
     /* ABOUT */

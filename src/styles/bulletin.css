@@ -1,0 +1,9 @@
+.bulletin-container {
+    position: absolute;
+    z-index: 3;
+    background-image: url(../assets/bulletin-pattern.png);
+    height: 80%;
+    width: 70%;
+    border: 10px solid rgb(92, 60, 13);
+    border-radius: 30px;
+}

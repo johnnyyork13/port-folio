@@ -121,6 +121,15 @@ export default function PlayerComp(props) {
                         case 269:
                             props.setPage("contact");
                             break;
+                        case 397:
+                            props.setPage("bulletin");
+                            break;
+                        case 398:
+                            props.setPage("bulletin");
+                            break;
+                        case 399:
+                            props.setPage("bulletin");
+                            break;
                         default:
                             props.setPage("home");
                     }

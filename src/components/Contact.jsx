@@ -47,11 +47,11 @@ export default function Contact(props) {
         try {
             if (sendMessage) {
                 async function sendMessageToServer() {
-                    const url = "https://us-central1-portfolio-game-backend.cloudfunctions.net/api/message"
+                    const url = props.root + "/message"
                     await fetch(url, {
                         method: "POST",
                         mode: "cors",
-                        // credentials: "include",
+                        credentials: "include",
                         headers: {
                             "Content-Type":"application/json",
                         },
