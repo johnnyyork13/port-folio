@@ -1,6 +1,9 @@
 import React from 'react';
 import {v4 as uuidv4} from 'uuid';
-import './styles/App.css'
+import './styles/App.css';
+import './styles/queries.css';
+import bubble from './assets/bubble.png';
+import bubbleBig from './assets/bubble-big.png';
 import levels from './assets/levels';
 import World from './utils/move';
 import cloudOne from './assets/cloud-one.png';
@@ -25,6 +28,7 @@ function App() {
 
   //console.log(-(centerMap[0] - playerStart[0]) * TILE_SIZE)
   const [page, setPage] = React.useState("");
+  const [showStartModal, setShowStartModal] = React.useState(true);
   const [level, setLevel] = React.useState([])
   const [movement, setMovement] = React.useState({
     // x: -(centerMap[0] - playerStart[0]) * TILE_SIZE,
@@ -90,8 +94,19 @@ function App() {
       setShortestPath(world.movePlayerClick(movement, clickedTile));
     }
   }, [clickedTile])
+
   return (
     <div className="App">
+      {showStartModal && 
+        <div className="start-modal-container">
+          <img src={window.innerWidth > 767 ? bubbleBig : bubble} />
+          <p>Hi! My name is Johnny. Welcome to Port Folio!</p>
+          <p>Feel free to walk around my little town by clicking on tiles.</p>
+          <p>While you're exploring, be sure to visit each building by clicking on their corresponding door.</p>
+          <p>Each building represents an aspect of my portfolio, so don't be afraid to click them all!</p>
+          <p>Thanks for visiting! <span className="close-start-modal-btn" onClick={() => setShowStartModal(false)}>Close</span></p>
+        </div>
+      }
       {/* <div className="mode-slider"></div> */}
       <div className="game-container" style={gridStyle}>
         <img src={cloudOne} className="cloud cloud-one"></img>

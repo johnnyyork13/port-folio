@@ -22,8 +22,8 @@ export default function Skills(props) {
     return (
         <div className="modal-container skills-modal-container">
             <div className="skills-content content">
-                <p>Skill Bank (Technologies I am Familiar With)</p>
-                <div className="skill-display">{skill === "" ? "Hover over a skill to check deposit." : skill}</div>
+                <p>My Skills</p>
+                <div className="skill-display">{skill === "" ? "Hover over a skill to see its description." : skill}</div>
                 <div className="skills-container">
                     <img className="skill" src={htmlLogo} onMouseEnter={() => setSkill("HTML5")}></img>
                     <img className="skill" src={cssLogo} onMouseEnter={() => setSkill("CSS3")}></img>
@@ -37,12 +37,6 @@ export default function Skills(props) {
                     <img className="skill" src={adobeLogo} onMouseEnter={() => setSkill("Adobe Photoshop")}></img>
                     <img className="skill" src={githubLogo} onMouseEnter={() => setSkill("GitHub")}></img>
                     <img className="skill" src={linuxLogo} onMouseEnter={() => setSkill("Linux")}></img>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>
                     <div className="skill" onMouseEnter={() => setSkill("")}></div>

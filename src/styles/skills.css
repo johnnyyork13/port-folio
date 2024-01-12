@@ -41,7 +41,7 @@
     /* background-image: url('../assets/bank-background-secondary.png'); */
     padding: 20px; 
     display: grid;
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 10px;
 }

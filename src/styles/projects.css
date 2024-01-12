@@ -12,6 +12,7 @@
     background-color: var(--border-color-main);
     border: 2px solid var(--background-color-main);
     color: white;
+    margin-bottom: 20px;
 }
 
 .close-projects-container-btn:hover {
@@ -19,7 +20,7 @@
 }
 
 .projects-container {
-    max-height: 500px;
+    max-height: 400px;
     display: grid;
     grid-auto-rows: 1fr;
     overflow: auto;

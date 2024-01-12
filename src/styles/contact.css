@@ -4,6 +4,7 @@
     font-family: 'Special Elite';
     padding: 0;
     height: 500px;
+    margin-top: 200px;
     min-width: 700px;
     position: relative;
     display: flex;
@@ -80,7 +81,6 @@
 .envelope-text {
     position: relative;
     z-index: 1;
-    left: 20px;
 }
 
 .envelope-text a, .paper-container a {
@@ -101,10 +101,12 @@
     90% {
         translate: 0px 650px;
         visibility: visible;
+        z-index: 1;
     }
     100% {
         translate: 0px 650px;
         visibility: visible;
+        z-index: 1;
     }
 }
 
@@ -184,6 +186,10 @@
 
 .dear-p {
     margin-top: 30px !important;
+}
+
+.message-input-error {
+    border: 1px solid red !important;
 }
 
 .paper-body {

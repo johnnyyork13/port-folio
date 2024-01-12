@@ -21,7 +21,7 @@ export default function About(props) {
     const perception = statBar(6).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
     const intelligence = statBar(6).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
     const creativity = statBar(8).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
-    const passion = statBar(9).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
+    const passion = statBar(10).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
     const teamwork = statBar(10).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
     const humor = statBar(10).map((e) => <div key={uuidv4()} className={`score-grid ${e.filled ? 'score-grid-filled' : 'score-grid-empty'}`}></div>)
 
@@ -45,9 +45,9 @@ export default function About(props) {
                 </aside>
                 <section className="about-summary">
                     <div className="about-info-section">
-                        <p className="about-info-header">Character Summary</p>
+                        <p className="about-info-header">About Me</p>
                         <p className="about-body">Currently studying Software Application Development at Mercer University. 
-                            While not building modern, responsive web applications, this player enjoys woodworking, reading, and riding his motorcycle.</p>
+                            While not building modern, responsive web applications, this player enjoys woodworking, reading, and riding motorcyles.</p>
                     </div>
                     <div className="about-info-section">
                         <p className="about-info-header">Character Stats</p>

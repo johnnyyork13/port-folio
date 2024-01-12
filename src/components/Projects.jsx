@@ -12,7 +12,7 @@ export default function Projects(props) {
     return (
         <div className="modal-container project-modal-container">
             <div className="projects-content content">
-                <p className="projects-header">Exercises (Projects I've Worked On)</p>
+                <p className="projects-header">Projects I've Worked On</p>
                 <div className="projects-container">
                     <ProjectTile
                         thumbnail={bloggyLogo} 
