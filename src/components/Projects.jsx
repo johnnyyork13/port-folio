@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/projects.css';
 import ProjectTile from './ProjectTile';
+import viceLogo from '../assets/vice-logo.png';
 import bloggyLogo from '../assets/bloggyai-logo.svg';
 import wishboxLogo from '../assets/wishbox-logo.png';
 import pokemonLogo from '../assets/pokemon-logo.png';
@@ -15,23 +16,30 @@ export default function Projects(props) {
                 <p className="projects-header">Projects I've Worked On</p>
                 <div className="projects-container">
                     <ProjectTile
+                        thumbnail={viceLogo} 
+                        name={"ViceWaves"}
+                        body={"Small e-commerce site for SynthWave merchandise."}
+                        github={"https://www.github.com/johnnyyork13/vicewaves"}
+                        liveLink={"https://vicewaves.com"}
+                    />
+                    <ProjectTile
                         thumbnail={bloggyLogo} 
                         name={"BloggyAI"}
-                        body={"Blog application that creates blog posts based on a prompt by a user."}
+                        body={"Blog application that generates posts based on context provided by a user."}
                         github={"https://www.github.com/johnnyyork13/blog-api"}
                         liveLink={"http://johnnyyork13.github.io/blog-api"}
                     />
-                    <ProjectTile
+                    {/* <ProjectTile
                         thumbnail={wishboxLogo} 
                         name={"WishBox"}
                         body={"Gaming app that allows users to search for and save games to a wishlist."}
                         github={"https://www.github.com/johnnyyork13/react-digital-game-app"}
                         liveLink={""}
-                    />
+                    /> */}
                     <ProjectTile
                         thumbnail={pokemonLogo} 
                         name={"Pokemon Deck Builder"}
-                        body={"Virtual Pokemon card deck building app allowing users to search and sort their pokemon cards."}
+                        body={"Virtual Pokemon card deck building application."}
                         github={"https://www.github.com/johnnyyork13/pokemon-deck-builder"}
                         liveLink={"https://johnnyyork13.github.io/pokemon-deck-builder"}
                     />
@@ -45,7 +53,7 @@ export default function Projects(props) {
                     <ProjectTile
                         thumbnail={reactcvLogo} 
                         name={"ReactCV"}
-                        body={"Simple CV creator built with React that transforms input into a stylish resume."}
+                        body={"CV creator that transforms input into a stylish resume."}
                         github={"https://www.github.com/johnnyyork13/react-cv"}
                         liveLink={"https://johnnyyork13.github.io/react-cv"}
                     />

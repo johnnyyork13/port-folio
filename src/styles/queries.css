@@ -180,6 +180,52 @@
         margin-left: 20px;
         margin-right: 20px;
     }
+
+    /* BULLETIN */
+
+    .App .bulletin-container {
+        width: 80%;
+        padding: 30px;
+        height: 300px;
+    }
+
+    .App .bulletin {
+        gap: 40px;
+        height: 100%;
+    }
+
+    .App .bulletin-header {
+        margin: 0px;
+        margin-bottom: 20px;
+    }
+
+    .App .bulletin-pin {
+        width: 15px;
+        height: 15px;
+    }
+
+    .App .bulletin-section-header {
+        font-size: .8rem;
+    }
+
+    .App .bulletin-left {
+        min-width: 0px;
+        width: 150px;
+        max-height: 200px;
+        font-size: .8rem;
+    }
+
+    .App .bulletin-left input {
+        font-size: .5rem;
+    }
+
+    .App .bulletin-top-right-body, .App .bulletin-bottom-right p {
+        font-size: .5rem;
+    }
+
+    .App .close-bulletin-container-btn {
+        margin: 5px;
+    }
 }
 
 /* Portrait tablet to landscape and desktop */
@@ -191,6 +237,18 @@
     .App .contact-modal-container {
         margin-top: 200px;
     }
+
+    /* BULLETIN */
+
+    .App .bulletin-container {
+        width: 80%;
+        padding: 30px;
+    }
+
+    .App .bulletin {
+        gap: 40px;
+    }
+
 } 
 
 /* Large desktop */
