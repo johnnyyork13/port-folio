@@ -99,7 +99,7 @@ export default function PlayerComp(props) {
                         setResetWalkingAnimation((prev) => !prev);
                         setWalking(false);
                     }
-                }, 50);
+                }, 250);
                 if (inDoor) {
                     switch(doorNumber) {
                         case 362: 
