@@ -1,4 +1,4 @@
-### Welcome to my Portfolio's Repo!
+# Welcome to my Portfolio's Repo!
 
 ## How to Play
 Each building represents a section of my portfolio. Clicking on the corresponding door
