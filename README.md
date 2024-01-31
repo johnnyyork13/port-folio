@@ -1,8 +1,13 @@
-# React + Vite
+### Welcome to my Portfolio's Repo!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to Play
+Each building represents a section of my portfolio. Clicking on the corresponding door
+directs the character (me) to walk towards it. Once I have arrived at the door
+you'll be able to learn a little more about me. 
 
-Currently, two official plugins are available:
+## About My Portfolio
+It was developed entirely with React. All of the art was created by me in MSPaint, except for the 
+character sprite. That was derived from one of my favorite games, Stardew Valley (I am horrible at drawing 
+people, so thank you ConcernedApe!).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Please Feel Free to Leave Me Feedback or Comments at the Bulletin Board on the Pier. Thanks!
