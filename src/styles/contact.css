@@ -81,6 +81,7 @@
 .envelope-text {
     position: relative;
     z-index: 1;
+    margin-top: 10px;
 }
 
 .envelope-text a, .paper-container a {
