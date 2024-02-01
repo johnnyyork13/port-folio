@@ -141,6 +141,7 @@
     grid-area: bulletinBottomRight;
     transform: rotate(1deg);
     background-color: rgb(230, 227, 92);
+    padding-bottom: 20px;
 }
 
 .bulletin-bottom-right p {

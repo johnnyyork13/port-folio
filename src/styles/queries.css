@@ -122,17 +122,18 @@
 
     .App .envelope-text {
         left: 0px;
+        font-size: .6rem;
     }
 
     .App .linkedIn-icon, .App .github-icon {
         width: 40px;
         height: 40px;
-        top: 1px;
+        top: -36px;
         right: 15px;
     }
 
     .App .github-icon {
-        top: 15px;
+        top: -23px;
         right: 68px;
     }
 
