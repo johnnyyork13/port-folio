@@ -33,16 +33,16 @@ export default function Skills(props) {
                     <img className="skill" src={mongoLogo} onMouseEnter={() => setSkill("MongoDB")}></img>
                     <img className="skill" src={expressLogo} onMouseEnter={() => setSkill("Express")}></img>
                     <img className="skill" src={nodeLogo} onMouseEnter={() => setSkill("NodeJS")}></img>
-                    <img className="skill" src={figmaLogo} onMouseEnter={() => setSkill("Figma")}></img>
                     <img className="skill" src={adobeLogo} onMouseEnter={() => setSkill("Adobe Photoshop")}></img>
                     <img className="skill" src={githubLogo} onMouseEnter={() => setSkill("GitHub")}></img>
                     <img className="skill" src={linuxLogo} onMouseEnter={() => setSkill("Linux")}></img>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
-                    <div className="skill" onMouseEnter={() => setSkill("")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
+                    <div className="skill" onMouseEnter={() => setSkill("TBD")}></div>
                 </div>
             </div>
             <button className="close-container-btn close-skills-container-btn" onClick={() => props.setPage("")}>Close</button>
