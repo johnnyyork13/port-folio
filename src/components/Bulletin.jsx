@@ -93,7 +93,7 @@ export default function Bulletin(props) {
 
     const mappedBulletinList = bulletinList.map((message) => {
         return <div className="bulletin-message">
-            <p className="bulletin-message-name">By: {message.name}</p>
+            <p className="bulletin-message-name">By: <span>{message.name}</span></p>
             <p className="bulletin-message-body">{message.body}</p>
         </div>
     })
