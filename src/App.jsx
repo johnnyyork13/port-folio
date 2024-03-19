@@ -104,7 +104,7 @@ function App() {
         <div className="start-modal-container">
           <img src={window.innerWidth > 767 ? bubbleBig : bubble} />
           <p>Hi! My name is Johnny. Welcome to Port Folio!</p>
-          <p>Feel free to walk around my little town by clicking on tiles.</p>
+          <p>Feel free to walk around my town by clicking on tiles.</p>
           <p>While you're exploring, be sure to visit each building by clicking on their corresponding door.</p>
           <p>Each building represents an aspect of my portfolio, so don't be afraid to click them all!</p>
           <p>Thanks for visiting! <span className="close-start-modal-btn" onClick={() => setShowStartModal(false)}>Close</span></p>

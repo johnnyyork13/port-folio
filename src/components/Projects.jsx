@@ -4,6 +4,7 @@ import ProjectTile from './ProjectTile';
 import viceLogo from '../assets/vice-logo.png';
 import bloggyLogo from '../assets/bloggyai-logo.svg';
 import wishboxLogo from '../assets/wishbox-logo.png';
+import mercerLogo from '../assets/mercer-logo.png';
 import pokemonLogo from '../assets/pokemon-logo.png';
 import battleshipLogo from '../assets/battleship-logo.png';
 import reactcvLogo from '../assets/reactcv-logo.png';
@@ -13,8 +14,15 @@ export default function Projects(props) {
     return (
         <div className="modal-container project-modal-container">
             <div className="projects-content content">
-                <p className="projects-header">Projects I've Worked On</p>
+                <p className="projects-header">My Top Projects</p>
                 <div className="projects-container">
+                    <ProjectTile
+                        thumbnail={mercerLogo} 
+                        name={"MyBear"}
+                        body={"Social media site designed for Mercer students."}
+                        github={"https://www.github.com/johnnyyork13/bearbook"}
+                        liveLink={"https://johnnyyork13.github.io/bearbook"}
+                    />
                     <ProjectTile
                         thumbnail={viceLogo} 
                         name={"ViceWaves"}
@@ -43,7 +51,7 @@ export default function Projects(props) {
                         github={"https://www.github.com/johnnyyork13/pokemon-deck-builder"}
                         liveLink={"https://johnnyyork13.github.io/pokemon-deck-builder"}
                     />
-                    <ProjectTile
+                    {/* <ProjectTile
                         thumbnail={battleshipLogo} 
                         name={"Battleship"}
                         body={"Battleship simulator where a player can compete against the computer to sink each other's ships."}
@@ -56,7 +64,7 @@ export default function Projects(props) {
                         body={"CV creator that transforms input into a stylish resume."}
                         github={"https://www.github.com/johnnyyork13/react-cv"}
                         liveLink={"https://johnnyyork13.github.io/react-cv"}
-                    />
+                    /> */}
                 </div>
             </div>
             <button className="close-container-btn close-projects-container-btn" onClick={() => props.setPage("")}>Close</button>

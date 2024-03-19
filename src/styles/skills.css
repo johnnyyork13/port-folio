@@ -26,6 +26,11 @@
     align-items: center;
 }
 
+.skills-header {
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
 .skill-display {
     width: 90%;
     height: 30px;

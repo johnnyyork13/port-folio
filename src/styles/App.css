@@ -69,7 +69,8 @@ body {
 
 .close-start-modal-btn {
     font-weight: bolder;
-    margin-left: 350px;
+    float: right;
+    margin-top: 20px;
     cursor: pointer;
     font-size: 1.6rem;
 }

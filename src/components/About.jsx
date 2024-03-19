@@ -40,7 +40,7 @@ export default function About(props) {
                     </div>
                     <div className="about-sidebar-info-section">
                         <p className="about-header">Class:</p>
-                        <p className="about-body">Full-stack Developer</p>
+                        <p className="about-body">Jr. full-stack Developer</p>
                     </div>
                 </aside>
                 <section className="about-summary">
