@@ -46,8 +46,9 @@ export default function About(props) {
                 <section className="about-summary">
                     <div className="about-info-section">
                         <p className="about-info-header">About Me</p>
-                        <p className="about-body">Currently studying Software Application Development at Mercer University. 
-                            While not building modern, responsive web applications, this player enjoys woodworking, reading, and riding motorcyles.</p>
+                        <p className="about-body">I'm Johnny York, a full stack developer with a passion for creating innovative solutions. Currently, I am studying at Mercer University where I am constantly honing my skills and expanding my knowledge in the tech world.
+
+When I'm not behind my computer, you can find me in my woodworking shop creating unique pieces of furniture or getting lost in a good book. I also have a love for drawing pixel art and taking long rides on my cruiser bike through the beautiful countryside.</p>
                     </div>
                     <div className="about-info-section">
                         <p className="about-info-header">Character Stats</p>
