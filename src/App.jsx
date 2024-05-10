@@ -16,6 +16,7 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Bulletin from './components/Bulletin';
+import Arrow from './assets/arrowDown.png'
 
 import Tile from './components/Tile';
 
@@ -98,6 +99,9 @@ function App() {
     }
   }, [clickedTile])
 
+  const [arrowCoords, setArrowCoords] = React.useState([1448, 170]);
+  // const [arrowCoords, setArrowCoords] = React.useState([2448, 180]);
+
   return (
     <div className="App">
       {showStartModal && 
@@ -122,9 +126,14 @@ function App() {
         <img src={palmTree} className="tree tree-six"></img>
         <img src={palmTree} className="tree tree-seven"></img>
         <img src={palmTree} className="tree tree-eight"></img>
+        <img src={Arrow} className="arrow-down" style={{
+              left: `${arrowCoords[0]}px`,
+              top: `${arrowCoords[1]}px`,
+        }}/>
         {level}
         <PlayerComp 
           movement={movement}
+          setArrowCoords={setArrowCoords}
           setMovement={setMovement}
           TILE_SIZE={TILE_SIZE}
           shortestPath={shortestPath}

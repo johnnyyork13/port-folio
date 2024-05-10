@@ -105,21 +105,27 @@ export default function PlayerComp(props) {
                         case 362: 
                             console.log("DOOR");
                             props.setPage("about");
+                            props.setArrowCoords([2277, 165]);
                             break;
                         case 370: 
                             props.setPage("skills");
+                            props.setArrowCoords([3125, 225]);
                             break;
                         case 371:
                             props.setPage("skills");
+                            props.setArrowCoords([3125, 225]);
                             break;
                         case 266:
                             props.setPage("projects");
+                            props.setArrowCoords([3450, 65]);
                             break;
                         case 267:
                             props.setPage("projects");
+                            props.setArrowCoords([3450, 65]);
                             break;
                         case 269:
                             props.setPage("contact");
+                            props.setArrowCoords([4100, 135]);
                             break;
                         case 397:
                             props.setPage("bulletin");

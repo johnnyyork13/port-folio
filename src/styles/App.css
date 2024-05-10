@@ -110,6 +110,39 @@ body {
     animation-duration: 240s;
 }
 
+@keyframes animateArrow {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveToBank {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(829px) translateY(-3px);
+    }
+
+}
+
+.arrow-down {
+    position: absolute;
+    pointer-events: none;
+    z-index: 7;
+    animation-name: animateArrow;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transition: left 1.5s, top 1.5s;
+}
+
 .tree {
     position: absolute;
     pointer-events: none;
