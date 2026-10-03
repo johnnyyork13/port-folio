@@ -12,4 +12,4 @@ people, so thank you ConcernedApe!).
 
 ## Please Feel Free to Leave Me Feedback or Comments at the Bulletin Board on the Pier. Thanks!
 
-### Portfolio Link: https://johnnyyork.dev
+### Portfolio Link: https://johnnyyork13.github.io/port-folio/
